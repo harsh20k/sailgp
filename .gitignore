@@ -1,0 +1,16 @@
+notes/
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+data/raw/
+data/processed/
+*.csv
+*.parquet
+*.pkl
+.env
+node_modules/
+.terraform/
+*.tfstate
