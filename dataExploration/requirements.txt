@@ -1,0 +1,23 @@
+# Notebook deps — requires Python 3.10–3.13 (ydata-profiling has no 3.14 wheel)
+setuptools<81
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.22
+kaleido
+scipy
+scikit-learn
+xgboost>=2.0
+torch>=2.0
+ydata-profiling>=4.18
+folium
+pyarrow
+fastparquet
+tqdm
+ipywidgets
+ipykernel
+nbformat>=4.2.0
+ipython
+torch>=2.0
+umap-learn>=0.5

@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+venv/
 .ipynb_checkpoints/
 data/raw/
 data/processed/
@@ -14,3 +15,7 @@ data/processed/
 node_modules/
 .terraform/
 *.tfstate
+challengeDetails/
+analysis_output/
+web/data/snapshot.json
+dataExploration/sailgp_profile.html

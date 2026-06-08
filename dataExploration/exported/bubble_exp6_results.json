@@ -1,0 +1,23 @@
+{
+  "exp3_ref": {
+    "experiment": "exp3_ref",
+    "task": "Rank change",
+    "lstm_metric": 0.41340125793907306,
+    "metric_name": "macro F1",
+    "best_baseline": "majority",
+    "best_baseline_metric": 0.2980392156862745,
+    "delta": 0.11536204225279856,
+    "signal": true
+  },
+  "exp6": {
+    "experiment": "exp6",
+    "task": "Rank change",
+    "lstm_metric": 0.3247512750503297,
+    "metric_name": "macro F1",
+    "best_baseline": "majority",
+    "best_baseline_metric": 0.2980392156862745,
+    "delta": -0.08864998288874337,
+    "signal": false
+  },
+  "bubble_lift": -0.08864998288874337
+}

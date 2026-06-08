@@ -1,0 +1,87 @@
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "Dirty air penalty",
+      "description": "Rival within 80m forward cone \u2192 lower VMG residual vs polar",
+      "test": "Mann-Whitney U",
+      "p_value": 6.034841965289915e-08,
+      "effect_size": -0.07805301057355105,
+      "effect_label": "Cohen's d (dirty - clean)",
+      "n_samples": 46329,
+      "verdict": "Supported",
+      "enter_model": true,
+      "details": {
+        "n_clean": 40355,
+        "n_dirty": 5974,
+        "mean_clean": 0.004015782302388897,
+        "mean_dirty": -0.02712703294491201,
+        "mwu_stat": 115434423.0
+      }
+    },
+    {
+      "id": "H2",
+      "name": "Traffic \u2192 rank loss",
+      "description": "Higher n_boats_ahead_180deg predicts rank loss in next 60s",
+      "test": "Logistic regression + point-biserial",
+      "p_value": 2.662990375684216e-173,
+      "effect_size": 0.5877561844365655,
+      "effect_label": "AUC / coef",
+      "n_samples": 46329,
+      "verdict": "Supported",
+      "enter_model": true,
+      "details": {
+        "coef_n_ahead": 0.1941701078108903,
+        "auc": 0.5877561844365655,
+        "point_biserial_r": 0.12983693324268003
+      }
+    },
+    {
+      "id": "H3",
+      "name": "Clear-air leader",
+      "description": "Zero boats in 200m bubble correlates with rank gain/hold",
+      "test": "Chi-square",
+      "p_value": 3.039562071470471e-104,
+      "effect_size": 0.10073286898714558,
+      "effect_label": "Cram\u00e9r's V",
+      "n_samples": 46329,
+      "verdict": "Supported",
+      "enter_model": true,
+      "details": {
+        "clear_gain_hold_rate": 0.8960735859417902,
+        "traffic_gain_hold_rate": 0.7859905237546421,
+        "n_clear": 7284,
+        "n_traffic": 39045
+      }
+    },
+    {
+      "id": "H4",
+      "name": "Foiling advantage",
+      "description": "More rivals foiling in bubble while ego is not \u2192 rank loss",
+      "test": "Mann-Whitney U on rank_loss",
+      "p_value": 2.163594487152344e-253,
+      "effect_size": 0.3630673202730003,
+      "effect_label": "Cohen's d",
+      "n_samples": 46329,
+      "verdict": "Supported",
+      "enter_model": true,
+      "details": {
+        "loss_rate_high_deficit": 0.2826766304347826,
+        "loss_rate_low_deficit": 0.13718739539999045,
+        "n_high": 14720,
+        "n_low": 20913
+      }
+    }
+  ],
+  "frame_stats": {},
+  "features_for_model": [
+    "n_boats_in_500m",
+    "nearest_boat_dist_m",
+    "nearest_boat_bearing_deg",
+    "nearest_faster_dist_m",
+    "n_boats_ahead_180deg",
+    "n_boats_foiling",
+    "speed_delta_nearest_kmh"
+  ],
+  "go_count": 4
+}

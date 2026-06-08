@@ -1,0 +1,96 @@
+{
+  "fast_mode": false,
+  "summary": [
+    {
+      "experiment": "exp1_foiling",
+      "meaningful": true,
+      "key_metric": "auc_test=0.865"
+    },
+    {
+      "experiment": "exp2_sailing_modes",
+      "meaningful": false,
+      "key_metric": "silhouette=0.402, leg_align=0.309"
+    },
+    {
+      "experiment": "exp3_team_dna",
+      "meaningful": false,
+      "key_metric": "rank_rho=0.000"
+    },
+    {
+      "experiment": "exp4_tactical_anomaly",
+      "meaningful": true,
+      "key_metric": "mwu_p=0.0000"
+    },
+    {
+      "experiment": "exp5_cross_venue",
+      "meaningful": true,
+      "key_metric": "venue_mixing=0.358"
+    }
+  ],
+  "experiments": {
+    "exp1": {
+      "meaningful": true,
+      "metrics": {
+        "auc_train": 0.8387143155458883,
+        "auc_test": 0.8652567397786018,
+        "null_auc": 0.5094551259896811,
+        "foiling_mean_error": 0.18317021429538727,
+        "non_foiling_mean_error": 0.41488370299339294,
+        "recon_mean": 0.2532397508621216,
+        "recon_std": 0.21191032230854034,
+        "recon_p50": 0.19641730189323425,
+        "recon_p95": 0.6058735847473145,
+        "recon_p99": 1.0826531648635864
+      }
+    },
+    "exp2": {
+      "meaningful": false,
+      "metrics": {
+        "best_k": 4.0,
+        "ae_silhouette": 0.4020721912384033,
+        "pca_silhouette": 0.40365585684776306,
+        "davies_bouldin": 1.0446566074194692,
+        "leg_alignment": 0.30943396226415093,
+        "recon_mean": 0.008267812430858612,
+        "recon_std": 0.006243113428354263,
+        "recon_p50": 0.00691143237054348,
+        "recon_p95": 0.017567848786711693,
+        "recon_p99": 0.03313230723142624
+      }
+    },
+    "exp3": {
+      "meaningful": false,
+      "metrics": {
+        "rank_spearman_rho": 0.0,
+        "rank_spearman_p": 1.0,
+        "halifax_recon_mean": 0.3188755512237549,
+        "bermuda_recon_mean": 0.48076683282852173,
+        "transfer_ratio": 1.5076942443847656
+      }
+    },
+    "exp4": {
+      "meaningful": true,
+      "metrics": {
+        "penalty_mean_error": 0.5969825983047485,
+        "clean_mean_error": 0.49068543314933777,
+        "mannwhitney_p": 4.091159765852497e-27,
+        "mannwhitney_stat": 24601072.0,
+        "last60s_mean": 1.7930097579956055,
+        "earlier_mean": 19.935348510742188,
+        "race_recon_mean": 0.4923466742038727,
+        "race_recon_std": 0.43033239245414734,
+        "race_recon_p50": 0.3883852958679199,
+        "race_recon_p95": 1.2004987001419067,
+        "race_recon_p99": 1.9885101318359375
+      }
+    },
+    "exp5": {
+      "meaningful": true,
+      "metrics": {
+        "venue_mixing_score": 0.3575481390226315,
+        "bermuda_to_halifax_ratio": 3.278732232901201,
+        "halifax_to_bermuda_ratio": 1.925321621656349
+      }
+    }
+  }
+}

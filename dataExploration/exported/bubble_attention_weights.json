@@ -1,0 +1,16 @@
+{
+  "attention_summary": {
+    "mean_max_attn": 1.0,
+    "attn_entropy_mean": -0.0
+  },
+  "experiment": {
+    "experiment": "exp7",
+    "task": "Rank change",
+    "lstm_metric": 0.35096489188560803,
+    "metric_name": "macro F1",
+    "best_baseline": "majority",
+    "best_baseline_metric": 0.2980392156862745,
+    "delta": 0.05292567619933353,
+    "signal": true
+  }
+}

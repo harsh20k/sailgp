@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deep Agentic Research — SailGP Challenge Streams</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="deep-agents.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1>Deep <span class="accent">Agentic</span> Research</h1>
+      <p class="tagline">Three stream agents · shared memory · coordinator convergence · multi-day runs</p>
+      <nav class="nav">
+        <a href="index.html">← Data dashboard</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#how">How it works</a>
+        <a href="#live">Live state</a>
+        <a href="#implement">Implement</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main da-main">
+    <section id="architecture" class="panel">
+      <h2>System architecture</h2>
+      <p class="muted">
+        Each Ocean of Data Challenge <strong>stream</strong> gets a dedicated research agent.
+        They work in parallel, write to <strong>shared memory</strong>, and a <strong>coordinator</strong>
+        fuses cross-stream evidence until hypotheses <strong>converge</strong> into novel insights.
+      </p>
+
+      <div class="arch-diagram">
+        <div class="arch-row streams">
+          <div class="arch-node stream above" data-stream="above">
+            <h3>Above the Water</h3>
+            <p>Wind · marks · dirty air · forecasts</p>
+            <span class="agent-badge">ResearchAgent</span>
+          </div>
+          <div class="arch-node stream on_water" data-stream="on_water">
+            <h3>On the Water</h3>
+            <p>Foil · wing · VMG · rank telemetry</p>
+            <span class="agent-badge">ResearchAgent</span>
+          </div>
+          <div class="arch-node stream around" data-stream="around">
+            <h3>Around the Water</h3>
+            <p>Fan story · rank volatility · pre-start</p>
+            <span class="agent-badge">ResearchAgent</span>
+          </div>
+        </div>
+        <div class="arch-arrows">↓ evidence & hypotheses ↓</div>
+        <div class="arch-row">
+          <div class="arch-node memory">
+            <h3>Shared Memory</h3>
+            <p>Hypotheses · evidence chains · inter-agent messages · run history</p>
+            <code>analysis_output/deep_research/shared_memory.json</code>
+          </div>
+        </div>
+        <div class="arch-arrows">↓ synthesis each cycle ↓</div>
+        <div class="arch-row">
+          <div class="arch-node coordinator">
+            <h3>Coordinator Agent</h3>
+            <p>Cross-stream links · novelty score · convergence promotion → insights</p>
+          </div>
+        </div>
+        <div class="arch-arrows">↓ after days of cycles ↓</div>
+        <div class="arch-row">
+          <div class="arch-node outcome">
+            <h3>Novel converged insights</h3>
+            <p>High confidence · multi-stream corroboration · submission-ready narratives</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="panel">
+      <h2>How deep research converges over days</h2>
+      <ol class="cycle-steps">
+        <li>
+          <strong>Cycle N</strong> — Each stream agent loads full telemetry, runs stream-specific
+          statistical probes (not one-shot charts), and attaches <em>evidence</em> to hypotheses.
+        </li>
+        <li>
+          <strong>Confidence accumulates</strong> — Re-running every 10–60 min adds evidence;
+          confidence rises; status moves proposed → testing → supported → <strong>converged</strong>.
+        </li>
+        <li>
+          <strong>Coordinator pass</strong> — Detects multi-stream agreement (e.g. wind gradient + leader foiling),
+          scores <em>novelty</em>, promotes top insights to the board below.
+        </li>
+        <li>
+          <strong>Novelty</strong> — Insights that combine streams or show large effect sizes rank higher;
+          duplicates are suppressed.
+        </li>
+        <li>
+          <strong>Stop condition</strong> — <code>--until-converged 5</code> or run for days until insight board stabilizes.
+        </li>
+      </ol>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4>Shallow pipeline</h4>
+          <p>Ingest → snapshot → one report. Good for dashboards, not discovery.</p>
+        </div>
+        <div class="compare-card highlight">
+          <h4>Deep agentic pipeline</h4>
+          <p>3 researchers + coordinator + memory. Designed for multi-day convergence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="live" class="panel">
+      <h2>Live research state</h2>
+      <div class="live-controls">
+        <button id="btn-deep-cycle" type="button" class="primary">Run one research cycle</button>
+        <button id="btn-deep-refresh" type="button">Refresh</button>
+        <span id="cycle-meta" class="muted"></span>
+      </div>
+
+      <div class="convergence-bar-wrap">
+        <label>Convergence progress</label>
+        <div class="convergence-bar"><div id="convergence-fill"></div></div>
+        <span id="convergence-label" class="muted"></span>
+      </div>
+
+      <div class="live-grid">
+        <div class="live-col">
+          <h3>Hypothesis board</h3>
+          <div id="hypothesis-board"></div>
+        </div>
+        <div class="live-col">
+          <h3>Top insights (novel + converged)</h3>
+          <div id="insight-board"></div>
+        </div>
+      </div>
+
+      <h3>Agent message bus (recent)</h3>
+      <pre id="message-bus" class="log"></pre>
+
+      <h3>Run history</h3>
+      <div id="run-history"></div>
+    </section>
+
+    <section id="implement" class="panel">
+      <h2>Implementation in this repo</h2>
+      <pre class="code-block"><code># One research cycle (all 3 streams + coordinator)
+python scripts/run_deep_agents.py
+
+# Every 10 minutes, for days
+python scripts/run_deep_agents.py --watch --interval 600
+
+# Stop when 5 hypotheses have converged
+python scripts/run_deep_agents.py --until-converged 5 --interval 300
+
+# API
+curl -X POST http://127.0.0.1:8000/api/deep/run-cycle
+curl http://127.0.0.1:8000/api/deep/status</code></pre>
+
+      <table class="data impl-table">
+        <thead><tr><th>Module</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>sailgp_analysis/deep_agents/stream_agents.py</code></td><td>Above / On / Around research logic</td></tr>
+          <tr><td><code>sailgp_analysis/deep_agents/coordinator.py</code></td><td>Cross-stream synthesis & novelty</td></tr>
+          <tr><td><code>sailgp_analysis/deep_agents/shared_memory.py</code></td><td>Hypotheses, evidence, insights, messages</td></tr>
+          <tr><td><code>sailgp_analysis/deep_agents/orchestrator.py</code></td><td>Multi-day loop & convergence stop</td></tr>
+          <tr><td><code>scripts/run_deep_agents.py</code></td><td>CLI entry point</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Extending toward LLM-deep research</h3>
+      <p class="muted">
+        The current agents use <strong>statistical probes</strong> (reproducible, no API cost).
+        To go deeper: wrap each <code>research_cycle()</code> with an LLM that reads evidence +
+        <code>challengeDetails/streamProjectIdeas.md</code>, proposes experiments, and writes back
+        structured JSON to shared memory. The coordinator pattern stays the same.
+      </p>
+      <ul class="ext-list">
+        <li>Give each agent a <strong>research agenda</strong> queue (questions not yet answered)</li>
+        <li>Store <strong>failed hypotheses</strong> to avoid re-testing</li>
+        <li>Add <strong>critic agent</strong> that refutes weak evidence before convergence</li>
+        <li>Use <strong>embedding similarity</strong> on insights to detect true novelty vs. rephrase</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><a href="index.html">SailGP dashboard</a> · Stream #2 On the Water · Ocean of Data Challenge</p>
+  </footer>
+
+  <script src="deep-agents.js"></script>
+</body>
+</html>
