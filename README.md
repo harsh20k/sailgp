@@ -16,7 +16,10 @@ Within 20 s of the gun, eventual top-4 boats fly ~40 cm higher and 15 km/h faste
 
 <p align="center">
   <img src="assets/race-decided/img1_first60seconds.png" alt="Two foiling catamarans at 20 seconds after the start" width="48%" />
-  <img src="assets/race-decided/charts/chart-c8.png" alt="Mean ride height in first 60 seconds by finish group" width="48%" />
+</p>
+<p align="center">
+  <img src="assets/race-decided/charts/chart-c8.png" alt="Mean ride height in first 60 seconds by finish group" width="48%" /><br/>
+  <sub><em>Source: SailGP race data</em></sub>
 </p>
 
 ---
@@ -27,7 +30,10 @@ After leg-length control (74.8% of raw variance), flight quality explains **86.3
 
 <p align="center">
   <img src="assets/race-decided/img2_flight_quality.png" alt="Catamaran flying cleanly on hydrofoils" width="48%" />
-  <img src="assets/race-decided/charts/chart-c2.png" alt="Share of residual variance by factor" width="48%" />
+</p>
+<p align="center">
+  <img src="assets/race-decided/charts/chart-c2.png" alt="Share of residual variance by factor" width="48%" /><br/>
+  <sub><em>Source: SailGP race data</em></sub>
 </p>
 
 ---
@@ -38,7 +44,10 @@ Per-team optimal path in each boat's wind. Total regret vs finish rank: **Spearm
 
 <p align="center">
   <img src="assets/race-decided/img3_ghost_boat.png" alt="Real boat chasing a ghost boat benchmark" width="48%" />
-  <img src="assets/race-decided/charts/chart-a4b.png" alt="Mean regret by leg type" width="48%" />
+</p>
+<p align="center">
+  <img src="assets/race-decided/charts/chart-a4b.png" alt="Mean regret by leg type" width="48%" /><br/>
+  <sub><em>Source: SailGP race data</em></sub>
 </p>
 
 ---
@@ -49,7 +58,10 @@ Slow re-foiling after mark roundings: ITA **61 s** vs AUS **1.5 s** (~8 min lost
 
 <p align="center">
   <img src="assets/race-decided/img4_restart_failure.png" alt="Fast vs slow re-foiling after a mark rounding" width="48%" />
-  <img src="assets/race-decided/charts/chart-c6.png" alt="Seconds to re-fly by team" width="48%" />
+</p>
+<p align="center">
+  <img src="assets/race-decided/charts/chart-c6.png" alt="Seconds to re-fly by team" width="48%" /><br/>
+  <sub><em>Source: SailGP race data</em></sub>
 </p>
 
 **For coaches:** start ride height, mid-leg flight stability, restart speed after turns.
@@ -61,7 +73,8 @@ Slow re-foiling after mark roundings: ITA **61 s** vs AUS **1.5 s** (~8 min lost
 Mark sensors interpolated across the full course (IDW) — wind speed and direction for every manoeuvre.
 
 <p align="center">
-  <img src="assets/race-decided/img5_wind_field.png" alt="Race course with colour-coded wind arrows" width="720" />
+  <img src="assets/race-decided/img5_wind_field.png" alt="Race course with colour-coded wind arrows" width="720" /><br/>
+  <sub><em>Source: SailGP race data</em></sub>
 </p>
 
 Interactive: `dataExploration/exported/wind_field_interp_Bermuda_Race_5.html`
