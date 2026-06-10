@@ -1,86 +1,86 @@
-# SailGP — Ocean of Data Challenge: Foil Forward
+# The race is decided in the first 60 seconds
 
-**Stream #2: On the Water** · June 10, 2026 · *Source: SailGP data*
+**Foil Forward · Stream #2: On the Water** · Ocean of Data Challenge · June 2026
 
-## Summary
+Four experiments, one causal chain — built from F50 telemetry (Bermuda 2026, 8 races + Halifax 2024, 6 races).  
+**Full write-up:** open [`race-decided-in-60-seconds.html`](race-decided-in-60-seconds.html) in a browser.
 
-I analyzed 1 Hz F50 telemetry from 14 races (Bermuda 2026 + Halifax 2024) to answer one question: what actually separates winning teams from the rest?
+---
 
-The answer is the first 60 seconds. Within 20 seconds of the start gun — before any tactical choices — eventual top-4 boats already fly ~40 cm higher on their foils and travel 15 km/h faster. 11 of 12 sensor gaps survive a wind-speed control, so the early advantage is skill, not a lucky gust.
+## C8 · The first 60 seconds
 
-I traced that gap through a four-step causal chain:
+Within 20 s of the gun, eventual top-4 boats fly ~40 cm higher and 15 km/h faster — before any tactical choices. **11/12** sensor gaps survive wind-speed control.
 
-1. **First-minute fingerprint (C8)** — ride height, speed, and wing/foil settings in the opening 60 s already predict finishing position.
-2. **Flight quality (C2)** — after removing leg-length effects, how stably the boat stays on its foils explains 86% of the controllable performance gap.
-3. **Ghost boat benchmark (A4b)** — a virtual perfect sailor built from the fleet's own polar gives every team a fair "seconds lost" score. Total regret tracks race rank at ρ = 0.915.
-4. **Restart time (C6)** — the most fixable failure: slow re-foiling after mark roundings. The slowest team takes 61 s to get flying again vs 2 s for the best, losing ~8 minutes per race.
+| +15.3 km/h | +425 mm port foil | 11/12 gaps | 116 start windows |
+|------------|-------------------|------------|-------------------|
 
-Coaches get three concrete targets from the telemetry SailGP already collects: start ride height, mid-leg flight stability, and restart speed after turns.
+<p align="center">
+  <img src="assets/race-decided/img1_first60seconds.png" alt="Two foiling catamarans at 20 seconds after the start" width="48%" />
+  <img src="assets/race-decided/charts/chart-c8.png" alt="Mean ride height in first 60 seconds by finish group" width="48%" />
+</p>
 
-## Stack
+---
 
-Python · Pandas · FastAPI · HTML dashboard · multi-agent analysis
+## C2 · Flight quality drives the gap
 
-## Quick start
+After leg-length control (74.8% of raw variance), flight quality explains **86.3%** of the controllable gap. Dirty air + VMG efficiency ≈ 14%.
 
-```bash
-cd /path/to/sailgp
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+<p align="center">
+  <img src="assets/race-decided/img2_flight_quality.png" alt="Catamaran flying cleanly on hydrofoils" width="48%" />
+  <img src="assets/race-decided/charts/chart-c2.png" alt="Share of residual variance by factor" width="48%" />
+</p>
 
-# Build web data snapshot + run agents once
-python scripts/build_snapshot.py
-python scripts/run_agents.py --force
+---
 
-# Web UI + API (open http://127.0.0.1:8000)
-uvicorn api.main:app --reload --app-dir .
-```
+## A4b · Ghost boat — fair benchmark
 
-## Project layout
+Per-team optimal path in each boat's wind. Total regret vs finish rank: **Spearman ρ = 0.915**. Upwind regret **2.2×** downwind. Best upwind: AUS 28.8 s.
 
-| Path | Purpose |
+<p align="center">
+  <img src="assets/race-decided/img3_ghost_boat.png" alt="Real boat chasing a ghost boat benchmark" width="48%" />
+  <img src="assets/race-decided/charts/chart-a4b.png" alt="Mean regret by leg type" width="48%" />
+</p>
+
+---
+
+## C6 · Slow restarts after turns
+
+Slow re-foiling after mark roundings: ITA **61 s** vs AUS **1.5 s** (~8 min lost/race). Explains **52.7%** of upwind-regret variance.
+
+<p align="center">
+  <img src="assets/race-decided/img4_restart_failure.png" alt="Fast vs slow re-foiling after a mark rounding" width="48%" />
+  <img src="assets/race-decided/charts/chart-c6.png" alt="Seconds to re-fly by team" width="48%" />
+</p>
+
+**For coaches:** start ride height, mid-leg flight stability, restart speed after turns.
+
+---
+
+## Wind · Course wind field
+
+Mark sensors interpolated across the full course (IDW) — wind speed and direction for every manoeuvre.
+
+<p align="center">
+  <img src="assets/race-decided/img5_wind_field.png" alt="Race course with colour-coded wind arrows" width="720" />
+</p>
+
+Interactive: `dataExploration/exported/wind_field_interp_Bermuda_Race_5.html`
+
+---
+
+## Glossary
+
+| Term | Meaning |
 |------|---------|
-| `DataChallenge_Export/` | SailGP boat CSVs, marks, metadata |
-| `challengeDetails/` | Challenge docs, data summary, project ideas |
-| `dataExploration/` | Jupyter EDA notebook |
-| `web/` | HTML dashboard (`index.html`, `app.js`) |
-| `api/main.py` | FastAPI — `/api/snapshot`, `/api/agents/run` |
-| `sailgp_analysis/` | Data loader, analytics, multi-agent system |
-| `scripts/run_agents.py` | One-shot or `--watch` continuous analysis |
+| **Flight quality** | 0–1 score from ride height + foiling sensors |
+| **Ghost boat** | Per-team optimal path using fleet polar + that boat's wind |
+| **Regret** | Seconds lost vs ghost over a leg (actual − ghost time) |
+| **Re-establishment** | Seconds until flight quality > 0.7 after a turn |
 
-## Multi-agent system
+---
 
-Three agents run in sequence (or on a timer when new CSVs appear):
+## Data & repo
 
-1. **Ingest** — SHA256 scan of `DataChallenge_Export/**/boats/**/*.csv`
-2. **Analytics** — Rebuilds `analysis_output/metrics.json` and `web/data/snapshot.json`
-3. **Report** — Writes `analysis_output/latest_report.md` and `insights.json`
-
-```bash
-# Continuous watch (every 60s)
-python scripts/run_agents.py --watch --interval 60
-```
-
-Outputs: `analysis_output/agent_state.json`, `agent_status.json`, `run_log.jsonl`
-
-## Deep agentic research (3 challenge streams)
-
-Three **stream research agents** (Above / On / Around) + **coordinator** with shared memory for multi-day convergence.
-
-```bash
-python scripts/run_deep_agents.py              # one cycle
-python scripts/run_deep_agents.py --watch --interval 600
-python scripts/run_deep_agents.py --until-converged 5
-```
-
-**Website:** [web/deep-agents.html](web/deep-agents.html) — architecture, live hypothesis board, API hooks.
-
-Memory: `analysis_output/deep_research/shared_memory.json`
-
-## EDA notebook
-
-```bash
-jupyter notebook dataExploration/dataExploration.ipynb
-```
-
-Generates: `sailgp_profile.html`, `map_bermuda.html`, `map_halifax.html`, `sailgp_dashboard.html` (embedded in the web UI when present).
+- **Source:** [SailGP challenge dataset](https://drive.google.com/file/d/1yXLn4tzXRdJ2C-udGX4OavMSsRIeAblx/view) (local: `DataChallenge_Export/`)
+- **Interactive charts:** `dataExploration/exported/` (ghost boat animation, wind field, first-minute timelines)
+- **Reproduce:** `pip install -r requirements.txt` → `python scripts/build_snapshot.py`
