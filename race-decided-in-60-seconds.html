@@ -33,6 +33,7 @@
     th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
     th { background: #161b22; }
     .chart { min-height: 220px; margin: 8px 0; }
+    .chart-source { font-size: 0.75rem; color: var(--muted); text-align: right; margin: 4px 0 0; }
     .section-visual { margin: 16px 0 20px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #161b22; }
     .section-visual img { display: block; width: 100%; height: auto; max-height: 340px; object-fit: cover; object-position: center; }
     .section-visual figcaption { padding: 10px 14px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); }
@@ -75,6 +76,7 @@
       <div>
         <div id="chart-c8" class="chart"></div>
         <p class="muted">Mean ride height, first 60 s (mm). Higher = cleaner flight.</p>
+        <p class="chart-source">Source- SailGP race data</p>
       </div>
     </div>
     <div class="stats">
@@ -99,6 +101,7 @@
       <div>
         <div id="chart-c2" class="chart"></div>
         <p class="muted">Share of residual variance (R² = 0.195).</p>
+        <p class="chart-source">Source- SailGP race data</p>
       </div>
     </div>
   </section>
@@ -117,6 +120,7 @@
       <div>
         <div id="chart-a4" class="chart"></div>
         <p class="muted">Mean regret (s) by leg type. MWU p ≈ 4×10⁻¹².</p>
+        <p class="chart-source">Source- SailGP race data</p>
       </div>
     </div>
     <div class="stats">
@@ -140,6 +144,7 @@
       <div>
         <div id="chart-c6" class="chart"></div>
         <p class="muted">Seconds until flight quality &gt; 0.7 after leg boundary.</p>
+        <p class="chart-source">Source- SailGP race data</p>
       </div>
     </div>
     <div class="stats">
@@ -172,10 +177,19 @@
   <p class="muted tech">Exported from race-decided-in-60-seconds.canvas.tsx · Print: Cmd+P → Save as PDF · Enable background graphics</p>
 </div>
 <script>
+const chartSource = {
+  text: 'Source- SailGP race data',
+  xref: 'paper', yref: 'paper',
+  x: 1, y: -0.08,
+  xanchor: 'right', yanchor: 'top',
+  showarrow: false,
+  font: { size: 10, color: '#8b949e' }
+};
+
 Plotly.newPlot('chart-c8', [
   {x:['Port foil','Starboard foil'], y:[1066,1083], name:'Winners (1–4)', type:'bar', marker:{color:'#3fb950'}},
   {x:['Port foil','Starboard foil'], y:[642,817], name:'Bottom (8+)', type:'bar', marker:{color:'#f85149'}}
-], {barmode:'group', paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:30,b:40,l:50,r:20}, yaxis:{title:'mm'}, showlegend:true});
+], {barmode:'group', paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:30,b:55,l:50,r:20}, yaxis:{title:'mm'}, showlegend:true, annotations:[chartSource]});
 
 Plotly.newPlot('chart-c2', [{
   labels:['Flight quality','Dirty air','VMG efficiency'],
@@ -183,19 +197,19 @@ Plotly.newPlot('chart-c2', [{
   type:'pie',
   hole:0.45,
   marker:{colors:['#3fb950','#d29922','#58a6ff']}
-}], {paper_bgcolor:'#0d1117', font:{color:'#e6edf3'}, margin:{t:20,b:20,l:20,r:20}, showlegend:true});
+}], {paper_bgcolor:'#0d1117', font:{color:'#e6edf3'}, margin:{t:20,b:40,l:20,r:20}, showlegend:true, annotations:[chartSource]});
 
 Plotly.newPlot('chart-a4', [{
   x:['Upwind legs','Downwind legs'], y:[41.4,19.0], type:'bar', marker:{color:'#d29922'},
   text:['41.4 s','19.0 s'], textposition:'outside'
-}], {paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:30,b:40,l:50,r:20}, yaxis:{title:'Mean regret (s)'}, shapes:[{type:'line',x0:-0.5,x1:1.5,y0:30,y1:30,line:{dash:'dot',color:'#8b949e'}}]});
+}], {paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:30,b:55,l:50,r:20}, yaxis:{title:'Mean regret (s)'}, shapes:[{type:'line',x0:-0.5,x1:1.5,y0:30,y1:30,line:{dash:'dot',color:'#8b949e'}}], annotations:[chartSource]});
 
 Plotly.newPlot('chart-c6', [{
   y:['AUS','GER','Fleet mean','ITA'], x:[1.5,1.7,15.6,61.3], type:'bar', orientation:'h',
   marker:{color:['#3fb950','#3fb950','#8b949e','#f85149']},
   text:['1.5 s','1.7 s','15.6 s','61.3 s'], textposition:'outside'
-}], {paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:20,b:40,l:80,r:60}, xaxis:{title:'Seconds to re-fly'}});
+}], {paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:20,b:55,l:80,r:60}, xaxis:{title:'Seconds to re-fly'}, annotations:[chartSource]});
 </script>
-<p style="font-family:sans-serif;font-size:12px;color:#888;text-align:right;margin:4px 8px 8px">Source: SailGP data</p>
+<p style="font-family:sans-serif;font-size:12px;color:#888;text-align:right;margin:4px 8px 8px">Source- SailGP race data</p>
 </body>
 </html>
