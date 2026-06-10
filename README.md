@@ -1,14 +1,21 @@
-# SailGP
+# SailGP — Ocean of Data Challenge: Foil Forward
 
-Ocean of Data Challenge — **Foil Forward**. Telemetry analysis for F50 catamaran races (Bermuda 2026, Halifax 2024).
+**Stream #2: On the Water** · June 10, 2026 · *Source: SailGP data*
 
-## Stream
+## Summary
 
-**#2: On the Water** — boat telemetry & performance science
+I analyzed 1 Hz F50 telemetry from 14 races (Bermuda 2026 + Halifax 2024) to answer one question: what actually separates winning teams from the rest?
 
-## Deadline
+The answer is the first 60 seconds. Within 20 seconds of the start gun — before any tactical choices — eventual top-4 boats already fly ~40 cm higher on their foils and travel 15 km/h faster. 11 of 12 sensor gaps survive a wind-speed control, so the early advantage is skill, not a lucky gust.
 
-June 10, 2026 · info@deepsense.ca
+I traced that gap through a four-step causal chain:
+
+1. **First-minute fingerprint (C8)** — ride height, speed, and wing/foil settings in the opening 60 s already predict finishing position.
+2. **Flight quality (C2)** — after removing leg-length effects, how stably the boat stays on its foils explains 86% of the controllable performance gap.
+3. **Ghost boat benchmark (A4b)** — a virtual perfect sailor built from the fleet's own polar gives every team a fair "seconds lost" score. Total regret tracks race rank at ρ = 0.915.
+4. **Restart time (C6)** — the most fixable failure: slow re-foiling after mark roundings. The slowest team takes 61 s to get flying again vs 2 s for the best, losing ~8 minutes per race.
+
+Coaches get three concrete targets from the telemetry SailGP already collects: start ride height, mid-leg flight stability, and restart speed after turns.
 
 ## Stack
 

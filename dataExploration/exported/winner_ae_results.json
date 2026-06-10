@@ -1,0 +1,147 @@
+{
+  "experiment": "c7_winner_profile_ae",
+  "device": "mps",
+  "mps_available": true,
+  "training_time_s": 7.27,
+  "epochs_trained": 100,
+  "encoder_dims": [
+    64,
+    32,
+    16
+  ],
+  "feature_cols": [
+    "BOAT_SPEED_km_h_1",
+    "VMG_km_h_1",
+    "TWA_SGP_deg",
+    "TWS_SGP_km_h_1",
+    "LENGTH_RH_P_mm",
+    "LENGTH_RH_S_mm",
+    "LENGTH_RH_BOW_mm",
+    "HEEL_deg",
+    "PITCH_deg",
+    "RATE_YAW_deg_s_1",
+    "ANGLE_WING_ROT_deg",
+    "ANGLE_WING_TWIST_deg",
+    "ANGLE_CA1_deg",
+    "ANGLE_CA2_deg",
+    "ANGLE_CA3_deg",
+    "ANGLE_CA4_deg",
+    "ANGLE_CA5_deg",
+    "ANGLE_CA6_deg",
+    "ANGLE_DB_CANT_P_deg",
+    "ANGLE_DB_CANT_S_deg"
+  ],
+  "n_racing": 76125,
+  "n_winner_tier": 13574,
+  "metrics": {
+    "mean_error_winner": 0.015866989269852638,
+    "mean_error_nonwinner": 0.07631294429302216,
+    "mannwhitney_stat": 642581760.0,
+    "mannwhitney_p": 0.0,
+    "winner_err_lower": true
+  },
+  "top_5_features": [
+    {
+      "feature": "BOAT_SPEED_km_h_1",
+      "mean_error_winner": 0.040063004940748215,
+      "mean_error_nonwinner": 0.22938232123851776,
+      "gap": 0.18931931629776955,
+      "rank": 1
+    },
+    {
+      "feature": "ANGLE_DB_CANT_P_deg",
+      "mean_error_winner": 0.019891586154699326,
+      "mean_error_nonwinner": 0.1973082721233368,
+      "gap": 0.17741668596863747,
+      "rank": 2
+    },
+    {
+      "feature": "ANGLE_DB_CANT_S_deg",
+      "mean_error_winner": 0.015654193237423897,
+      "mean_error_nonwinner": 0.16394174098968506,
+      "gap": 0.14828754775226116,
+      "rank": 3
+    },
+    {
+      "feature": "TWS_SGP_km_h_1",
+      "mean_error_winner": 0.01775389164686203,
+      "mean_error_nonwinner": 0.12068168073892593,
+      "gap": 0.1029277890920639,
+      "rank": 4
+    },
+    {
+      "feature": "ANGLE_WING_ROT_deg",
+      "mean_error_winner": 0.033824384212493896,
+      "mean_error_nonwinner": 0.10980632156133652,
+      "gap": 0.07598193734884262,
+      "rank": 5
+    }
+  ],
+  "success_criteria": {
+    "mwu_p_lt_0.01": true,
+    "controllable_in_top10": true,
+    "races_winner_identified_ge_3": true
+  },
+  "race_winner_check": {
+    "correct": 5,
+    "total": 7,
+    "details": [
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_1",
+        "predicted_winner": "USA",
+        "actual_winner": "USA",
+        "correct": true
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_2",
+        "predicted_winner": "AUS",
+        "actual_winner": "AUS",
+        "correct": true
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_3",
+        "predicted_winner": "AUS",
+        "actual_winner": "ESP",
+        "correct": false
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_4",
+        "predicted_winner": "AUS",
+        "actual_winner": "AUS",
+        "correct": true
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_5",
+        "predicted_winner": "ESP",
+        "actual_winner": "ESP",
+        "correct": true
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_6",
+        "predicted_winner": "AUS",
+        "actual_winner": "AUS",
+        "correct": true
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_7",
+        "predicted_winner": "AUS",
+        "actual_winner": "GER",
+        "correct": false
+      }
+    ]
+  },
+  "outputs": {
+    "feature_importance_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/winner_ae_feature_importance.csv",
+    "team_scores_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/winner_ae_team_scores.csv",
+    "timeline_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/winner_ae_timeline.html",
+    "gap_table_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/winner_ae_gap_table.html",
+    "results_json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/winner_ae_results.json"
+  }
+}

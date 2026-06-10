@@ -1,0 +1,226 @@
+{
+  "experiment": "c6_foiling_leg_start",
+  "venues": [
+    "Bermuda",
+    "Halifax"
+  ],
+  "n_leg_boundary_events": 648,
+  "n_recovered": 405,
+  "recovery_threshold": 0.7,
+  "fq_offsets_s": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "manoeuvre_classification": {
+    "n_mid_leg": 10469,
+    "n_boundary": 4467
+  },
+  "team_summary": [
+    {
+      "team": "AUS",
+      "leg_type": "downwind",
+      "n_events": 21,
+      "mean_reestablishment_s": 1.9523809523809523,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "AUS",
+      "leg_type": "upwind",
+      "n_events": 22,
+      "mean_reestablishment_s": 1.5454545454545454,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "BRA",
+      "leg_type": "downwind",
+      "n_events": 19,
+      "mean_reestablishment_s": 8.368421052631579,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "BRA",
+      "leg_type": "upwind",
+      "n_events": 18,
+      "mean_reestablishment_s": 45.05555555555556,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "CAN",
+      "leg_type": "downwind",
+      "n_events": 19,
+      "mean_reestablishment_s": 24.105263157894736,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "CAN",
+      "leg_type": "upwind",
+      "n_events": 18,
+      "mean_reestablishment_s": 2.5555555555555554,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "DEN",
+      "leg_type": "downwind",
+      "n_events": 18,
+      "mean_reestablishment_s": 5.388888888888889,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "DEN",
+      "leg_type": "upwind",
+      "n_events": 17,
+      "mean_reestablishment_s": 1.588235294117647,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "ESP",
+      "leg_type": "downwind",
+      "n_events": 23,
+      "mean_reestablishment_s": 17.782608695652176,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "ESP",
+      "leg_type": "upwind",
+      "n_events": 19,
+      "mean_reestablishment_s": 20.68421052631579,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "FRA",
+      "leg_type": "downwind",
+      "n_events": 13,
+      "mean_reestablishment_s": 5.0,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "FRA",
+      "leg_type": "upwind",
+      "n_events": 13,
+      "mean_reestablishment_s": 1.7692307692307692,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "GBR",
+      "leg_type": "downwind",
+      "n_events": 20,
+      "mean_reestablishment_s": 20.55,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "GBR",
+      "leg_type": "upwind",
+      "n_events": 18,
+      "mean_reestablishment_s": 21.444444444444443,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "GER",
+      "leg_type": "downwind",
+      "n_events": 21,
+      "mean_reestablishment_s": 4.761904761904762,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "GER",
+      "leg_type": "upwind",
+      "n_events": 21,
+      "mean_reestablishment_s": 1.6666666666666667,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "ITA",
+      "leg_type": "downwind",
+      "n_events": 9,
+      "mean_reestablishment_s": 49.0,
+      "median_reestablishment_s": 14.0
+    },
+    {
+      "team": "ITA",
+      "leg_type": "upwind",
+      "n_events": 6,
+      "mean_reestablishment_s": 61.333333333333336,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "SUI",
+      "leg_type": "downwind",
+      "n_events": 18,
+      "mean_reestablishment_s": 2.111111111111111,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "SUI",
+      "leg_type": "upwind",
+      "n_events": 20,
+      "mean_reestablishment_s": 2.45,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "SWE",
+      "leg_type": "downwind",
+      "n_events": 7,
+      "mean_reestablishment_s": 8.285714285714286,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "SWE",
+      "leg_type": "upwind",
+      "n_events": 7,
+      "mean_reestablishment_s": 1.8571428571428572,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "USA",
+      "leg_type": "downwind",
+      "n_events": 20,
+      "mean_reestablishment_s": 24.25,
+      "median_reestablishment_s": 1.0
+    },
+    {
+      "team": "USA",
+      "leg_type": "upwind",
+      "n_events": 18,
+      "mean_reestablishment_s": 24.944444444444443,
+      "median_reestablishment_s": 1.0
+    }
+  ],
+  "correlation": {
+    "spearman_rho": 0.6503496503496504,
+    "r2": 0.5265736961145491,
+    "n_teams": 12
+  },
+  "ita": {
+    "mean_upwind_reestablishment_s": 61.333333333333336,
+    "mean_upwind_regret_s": 66.35422164515442
+  },
+  "success_criteria": {
+    "spearman_rho": {
+      "value": 0.6503496503496504,
+      "p_value": 0.022034190932365322,
+      "threshold": 0.4,
+      "pass": true
+    },
+    "r2_upwind_regret": {
+      "value": 0.5265736961145491,
+      "threshold": 0.2,
+      "pass": true
+    },
+    "ita_reestablishment_vs_fleet": {
+      "value": 61.333333333333336,
+      "fleet_mean": 15.574522832688467,
+      "fleet_std": 20.0402300341987,
+      "threshold": "median + 1 std",
+      "pass": true
+    },
+    "overall_pass": true
+  },
+  "overall_pass": true,
+  "outputs": {
+    "csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/foiling_leg_start.csv",
+    "json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/foiling_leg_start_results.json",
+    "scatter_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/foiling_leg_start_scatter.html"
+  }
+}

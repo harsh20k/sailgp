@@ -1,0 +1,207 @@
+{
+  "experiment": "ghost_boat_regret",
+  "venues": [
+    "Bermuda",
+    "Halifax"
+  ],
+  "n_legs": 763,
+  "n_races": 14,
+  "n_teams": 13,
+  "polar_bins": 157,
+  "success_criteria": {
+    "ghost_sanity_pct": {
+      "value": 0.9468085106382979,
+      "threshold": 0.8,
+      "pass": true
+    },
+    "regret_spread_median_s": {
+      "value": 18.9998483657837,
+      "threshold": 15.0,
+      "pass": true
+    },
+    "spearman_rho": {
+      "value": 0.9151848151848153,
+      "threshold": 0.4,
+      "pass": true
+    },
+    "spatial_interpretability": {
+      "value": 0.3069179827761266,
+      "threshold": 0.1,
+      "pass": true
+    },
+    "overall_pass": true
+  },
+  "overall_pass": true,
+  "summary": {
+    "mean_regret_s": 30.003116795776084,
+    "median_regret_s": 17.799003601074006,
+    "regret_std_s": 33.77071123088651
+  },
+  "ranking_head": [
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "GER",
+      "total_regret_s": 99.4967784881598,
+      "finish_rank": 3.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "CAN",
+      "total_regret_s": 102.197370529175,
+      "finish_rank": 2.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "USA",
+      "total_regret_s": 105.49777603149428,
+      "finish_rank": 1.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "ESP",
+      "total_regret_s": 115.09736824035599,
+      "finish_rank": 4.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "ITA",
+      "total_regret_s": 120.497661590576,
+      "finish_rank": 6.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "GBR",
+      "total_regret_s": 125.8974552154541,
+      "finish_rank": 5.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "AUS",
+      "total_regret_s": 129.1981258392326,
+      "finish_rank": 8.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "DEN",
+      "total_regret_s": 132.09884071350078,
+      "finish_rank": 7.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "FRA",
+      "total_regret_s": 136.2986602783203,
+      "finish_rank": 9.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "BRA",
+      "total_regret_s": 151.89952468872062,
+      "finish_rank": 11.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "team": "SUI",
+      "total_regret_s": 157.1985454559327,
+      "finish_rank": 10.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "AUS",
+      "total_regret_s": 75.69681358337351,
+      "finish_rank": 1.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "ESP",
+      "total_regret_s": 96.99690055847171,
+      "finish_rank": 3.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "DEN",
+      "total_regret_s": 104.19683837890682,
+      "finish_rank": 2.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "CAN",
+      "total_regret_s": 110.69745826721181,
+      "finish_rank": 4.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "USA",
+      "total_regret_s": 114.09802818298368,
+      "finish_rank": 5.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "GER",
+      "total_regret_s": 118.9983310699459,
+      "finish_rank": 6.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "GBR",
+      "total_regret_s": 123.89867210388103,
+      "finish_rank": 7.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "SUI",
+      "total_regret_s": 136.599138259888,
+      "finish_rank": 8.0,
+      "legs": 7
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "team": "BRA",
+      "total_regret_s": 148.300239562988,
+      "finish_rank": 9.0,
+      "legs": 7
+    }
+  ],
+  "outputs": {
+    "csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_regret.csv",
+    "map_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_map.html",
+    "json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_results.json"
+  }
+}

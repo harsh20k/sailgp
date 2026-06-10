@@ -1,0 +1,294 @@
+{
+  "experiment": "dirty_air_penalty_curve",
+  "meta": {
+    "venue": "Bermuda",
+    "n_rows_raw": 51189,
+    "polar_bins": 197,
+    "polar_global_mean_kmh": 52.1065947423432,
+    "dtb_null_rate": 0.0,
+    "distance_source": "PC_DTB_m",
+    "n_rows_analysis": 46836
+  },
+  "bin_stats": {
+    "all": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 1732,
+        "mean_residual_kn": -1.2291725978486316,
+        "std_residual_kn": 6.092827344407946,
+        "mean_residual_kmh": -2.276427651215666,
+        "std_residual_kmh": 11.283916241843519,
+        "mwu_p_vs_control": 1.3634295258370583e-83,
+        "cohens_d_vs_control": -0.411793307893892,
+        "loss_vs_control_kn": 2.2005568230617314
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 2585,
+        "mean_residual_kn": -2.6498309443630728,
+        "std_residual_kn": 5.613735436974747,
+        "mean_residual_kmh": -4.907486908960411,
+        "std_residual_kmh": 10.396638029277232,
+        "mwu_p_vs_control": 1.5532623836349012e-279,
+        "cohens_d_vs_control": -0.7136494281909102,
+        "loss_vs_control_kn": 3.621215169576172
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 4712,
+        "mean_residual_kn": -2.048109760149797,
+        "std_residual_kn": 5.3805219547088425,
+        "mean_residual_kmh": -3.7930992757974247,
+        "std_residual_kmh": 9.964726660120778,
+        "mwu_p_vs_control": 0.0,
+        "cohens_d_vs_control": -0.6104949003169801,
+        "loss_vs_control_kn": 3.019493985362897
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 6986,
+        "mean_residual_kn": -1.203141405111759,
+        "std_residual_kn": 5.390724532785856,
+        "mean_residual_kmh": -2.2282178822669776,
+        "std_residual_kmh": 9.983621834719408,
+        "mwu_p_vs_control": 1.5829933987499666e-239,
+        "cohens_d_vs_control": -0.43917134027331084,
+        "loss_vs_control_kn": 2.1745256303248586
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 7101,
+        "mean_residual_kn": -0.598428695445053,
+        "std_residual_kn": 5.085370580357688,
+        "mean_residual_kmh": -1.1082899439642382,
+        "std_residual_kmh": 9.41810631482244,
+        "mwu_p_vs_control": 7.130302236131769e-144,
+        "cohens_d_vs_control": -0.32792134125698574,
+        "loss_vs_control_kn": 1.5698129206581526
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 23720,
+        "mean_residual_kn": 0.9713842252130995,
+        "std_residual_kn": 4.468599499833297,
+        "mean_residual_kmh": 1.7990035850946606,
+        "std_residual_kmh": 8.275846273691267,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ],
+    "upwind": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 1095,
+        "mean_residual_kn": -0.5113338065316664,
+        "std_residual_kn": 5.53773045068879,
+        "mean_residual_kmh": -0.9469902096966464,
+        "std_residual_kmh": 10.25587679467564,
+        "mwu_p_vs_control": 3.0252604110084925e-45,
+        "cohens_d_vs_control": -0.3476636220353559,
+        "loss_vs_control_kn": 1.7006517359021336
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 1512,
+        "mean_residual_kn": -1.8600169964517144,
+        "std_residual_kn": 4.739541193482353,
+        "mean_residual_kmh": -3.4447514774285746,
+        "std_residual_kmh": 8.777630290329318,
+        "mwu_p_vs_control": 8.847146959595152e-152,
+        "cohens_d_vs_control": -0.6849388503341428,
+        "loss_vs_control_kn": 3.0493349258221816
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 2478,
+        "mean_residual_kn": -2.0600640960918435,
+        "std_residual_kn": 4.823769437593052,
+        "mean_residual_kmh": -3.8152387059620945,
+        "std_residual_kmh": 8.933620998422334,
+        "mwu_p_vs_control": 1.1180394642632084e-238,
+        "cohens_d_vs_control": -0.7226176638818632,
+        "loss_vs_control_kn": 3.2493820254623107
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 4475,
+        "mean_residual_kn": -1.7437879491730197,
+        "std_residual_kn": 5.092898968937802,
+        "mean_residual_kmh": -3.229495281868432,
+        "std_residual_kmh": 9.43204889047281,
+        "mwu_p_vs_control": 7.06512326475999e-284,
+        "cohens_d_vs_control": -0.631794760387649,
+        "loss_vs_control_kn": 2.933105878543487
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 4651,
+        "mean_residual_kn": -0.8311518028973952,
+        "std_residual_kn": 4.5050103615133406,
+        "mean_residual_kmh": -1.539293138965976,
+        "std_residual_kmh": 8.343279189522706,
+        "mwu_p_vs_control": 7.069561059307973e-186,
+        "cohens_d_vs_control": -0.4668463351428888,
+        "loss_vs_control_kn": 2.0204697322678626
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 13667,
+        "mean_residual_kn": 1.1893179293704672,
+        "std_residual_kn": 4.142571826121475,
+        "mean_residual_kmh": 2.2026168051941055,
+        "std_residual_kmh": 7.672043021976971,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ],
+    "downwind": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 637,
+        "mean_residual_kn": -2.4631340994060515,
+        "std_residual_kn": 6.768462227423221,
+        "mean_residual_kmh": -4.561724352100009,
+        "std_residual_kmh": 12.535192045187806,
+        "mwu_p_vs_control": 5.762688698733681e-44,
+        "cohens_d_vs_control": -0.5322901450601027,
+        "loss_vs_control_kn": 3.138238613615596
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 1073,
+        "mean_residual_kn": -3.762784056424558,
+        "std_residual_kn": 6.4923095259569035,
+        "mean_residual_kmh": -6.968676072498283,
+        "std_residual_kmh": 12.023757242072186,
+        "mwu_p_vs_control": 1.6988385124358663e-133,
+        "cohens_d_vs_control": -0.773566193056739,
+        "loss_vs_control_kn": 4.437888570634102
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 2234,
+        "mean_residual_kn": -2.0348497581514127,
+        "std_residual_kn": 5.937294101180896,
+        "mean_residual_kmh": -3.7685417520964166,
+        "std_residual_kmh": 10.995868675387019,
+        "mwu_p_vs_control": 2.5767003588794262e-110,
+        "cohens_d_vs_control": -0.49935629061395326,
+        "loss_vs_control_kn": 2.7099542723609567
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 2511,
+        "mean_residual_kn": -0.23962356971783547,
+        "std_residual_kn": 5.759777719513763,
+        "mean_residual_kmh": -0.44378285111743143,
+        "std_residual_kmh": 10.667108336539489,
+        "mwu_p_vs_control": 2.965118750468331e-14,
+        "cohens_d_vs_control": -0.17161033214863106,
+        "loss_vs_control_kn": 0.9147280839273797
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 2450,
+        "mean_residual_kn": -0.15663474737940236,
+        "std_residual_kn": 6.010746446905929,
+        "mean_residual_kmh": -0.2900875521466532,
+        "std_residual_kmh": 11.131902419669782,
+        "mwu_p_vs_control": 1.8983866408852756e-06,
+        "cohens_d_vs_control": -0.15213460737482448,
+        "loss_vs_control_kn": 0.8317392615889465
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 10053,
+        "mean_residual_kn": 0.6751045142095442,
+        "std_residual_kn": 4.861356273532917,
+        "mean_residual_kmh": 1.2502935603160759,
+        "std_residual_kmh": 9.003231818582963,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ]
+  },
+  "decay_fit": {
+    "model": "exponential",
+    "params": {
+      "a": -4.197326663541391,
+      "b": 0.001980956760169853,
+      "c": 1.9999999999834703
+    },
+    "r2": 0.3310373425594352,
+    "formula": "residual_kn = a*exp(-b*dist_m) + c"
+  },
+  "success": {
+    "overall_pass": false,
+    "criteria": {
+      "monotonic_penalty": {
+        "pass": false,
+        "detail": "bin means (kn): [-1.229, -2.65, -2.048, -1.203, -0.598, 0.971]"
+      },
+      "mwu_significance_le100m": {
+        "pass": true,
+        "detail": {
+          "0-30m": 0.0,
+          "30-60m": 0.0,
+          "60-100m": 0.0
+        }
+      },
+      "effect_size_ge03kn_lt50m": {
+        "pass": true,
+        "detail": {
+          "0-30m": 2.201
+        }
+      },
+      "downwind_steeper": {
+        "pass": true,
+        "detail": {
+          "upwind_slope": -0.000188,
+          "downwind_slope": 0.020729
+        }
+      }
+    }
+  }
+}

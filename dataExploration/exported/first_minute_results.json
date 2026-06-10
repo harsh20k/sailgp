@@ -1,0 +1,187 @@
+{
+  "experiment": "c8_first_minute_fingerprint",
+  "n_team_races": 116,
+  "n_features": 20,
+  "top5_by_abs_rho": [
+    {
+      "feature": "HEEL_deg",
+      "rho_raw": -0.44997262123951054,
+      "rho_wind_residualised": -0.3641129621576875
+    },
+    {
+      "feature": "PITCH_deg",
+      "rho_raw": 0.439182073985927,
+      "rho_wind_residualised": 0.44807974162674963
+    },
+    {
+      "feature": "LENGTH_RH_P_mm",
+      "rho_raw": -0.43217728595786536,
+      "rho_wind_residualised": -0.390556603694043
+    },
+    {
+      "feature": "BOAT_SPEED_km_h_1",
+      "rho_raw": -0.40251461561897023,
+      "rho_wind_residualised": -0.4530329655236151
+    },
+    {
+      "feature": "VMG_km_h_1",
+      "rho_raw": 0.3798340640912174,
+      "rho_wind_residualised": 0.35536264442684035
+    }
+  ],
+  "wind_residualised_hits": [
+    "HEEL_deg",
+    "PITCH_deg",
+    "LENGTH_RH_P_mm",
+    "BOAT_SPEED_km_h_1",
+    "VMG_km_h_1",
+    "ANGLE_DB_CANT_P_deg",
+    "ANGLE_WING_ROT_deg",
+    "RATE_YAW_deg_s_1",
+    "ANGLE_CA4_deg",
+    "ANGLE_CA2_deg",
+    "ANGLE_CA1_deg"
+  ],
+  "feature_clusters": {
+    "n_clusters": 4,
+    "clusters": {
+      "1": [
+        "BOAT_SPEED_km_h_1",
+        "VMG_km_h_1",
+        "TWA_SGP_deg",
+        "TWS_SGP_km_h_1",
+        "LENGTH_RH_P_mm",
+        "LENGTH_RH_S_mm",
+        "LENGTH_RH_BOW_mm",
+        "HEEL_deg",
+        "PITCH_deg",
+        "RATE_YAW_deg_s_1",
+        "ANGLE_WING_ROT_deg",
+        "ANGLE_CA1_deg",
+        "ANGLE_CA2_deg",
+        "ANGLE_CA4_deg",
+        "ANGLE_CA5_deg",
+        "ANGLE_CA6_deg",
+        "ANGLE_DB_CANT_P_deg"
+      ],
+      "2": [
+        "ANGLE_WING_TWIST_deg"
+      ],
+      "3": [
+        "ANGLE_DB_CANT_S_deg"
+      ],
+      "4": [
+        "ANGLE_CA3_deg"
+      ]
+    }
+  },
+  "success": {
+    "overall_pass": true,
+    "criteria": {
+      "n_features_rho_gt_03": {
+        "pass": true,
+        "value": 8,
+        "threshold": ">= 5"
+      },
+      "wind_residual_controllable_significant": {
+        "pass": true,
+        "value": 11,
+        "features": [
+          "HEEL_deg",
+          "PITCH_deg",
+          "LENGTH_RH_P_mm",
+          "BOAT_SPEED_km_h_1",
+          "VMG_km_h_1",
+          "ANGLE_DB_CANT_P_deg",
+          "ANGLE_WING_ROT_deg",
+          "RATE_YAW_deg_s_1",
+          "ANGLE_CA4_deg",
+          "ANGLE_CA2_deg"
+        ],
+        "threshold": ">= 3"
+      },
+      "subwindow_temporal_dynamics": {
+        "pass": true,
+        "value": 6,
+        "features": [
+          "LENGTH_RH_P_mm",
+          "VMG_km_h_1",
+          "LENGTH_RH_BOW_mm",
+          "LENGTH_RH_S_mm",
+          "RATE_YAW_deg_s_1",
+          "ANGLE_DB_CANT_S_deg"
+        ],
+        "threshold": ">= 3 features with |\u03c1_0-20 \u2212 \u03c1_20-60| > 0.1"
+      },
+      "winner_bottom_significant": {
+        "pass": true,
+        "value": 12,
+        "threshold": ">= 3 significant MWU deltas"
+      }
+    }
+  },
+  "winner_vs_bottom_top_deltas": [
+    {
+      "feature": "LENGTH_RH_P_mm",
+      "winner_mean": 1066.3360975111393,
+      "bottom_mean": 641.8185916708252,
+      "delta": 424.51750584031413,
+      "n_winner": 31,
+      "n_bottom": 29,
+      "mwu_stat": 703.0,
+      "p_value": 0.0001821699605312561,
+      "significant_005": true
+    },
+    {
+      "feature": "LENGTH_RH_S_mm",
+      "winner_mean": 1082.616706008916,
+      "bottom_mean": 817.1623406547246,
+      "delta": 265.4543653541914,
+      "n_winner": 31,
+      "n_bottom": 29,
+      "mwu_stat": 629.0,
+      "p_value": 0.008099740725095565,
+      "significant_005": true
+    },
+    {
+      "feature": "LENGTH_RH_BOW_mm",
+      "winner_mean": 1052.9471603677505,
+      "bottom_mean": 797.2628982749676,
+      "delta": 255.6842620927829,
+      "n_winner": 31,
+      "n_bottom": 29,
+      "mwu_stat": 653.0,
+      "p_value": 0.002674140435992603,
+      "significant_005": true
+    },
+    {
+      "feature": "BOAT_SPEED_km_h_1",
+      "winner_mean": 63.77391901625356,
+      "bottom_mean": 48.45297004872354,
+      "delta": 15.320948967530015,
+      "n_winner": 31,
+      "n_bottom": 29,
+      "mwu_stat": 658.0,
+      "p_value": 0.0020918627460223453,
+      "significant_005": true
+    },
+    {
+      "feature": "ANGLE_CA6_deg",
+      "winner_mean": 1.8482925658417386,
+      "bottom_mean": -4.343396512431749,
+      "delta": 6.1916890782734875,
+      "n_winner": 31,
+      "n_bottom": 29,
+      "mwu_stat": 564.0,
+      "p_value": 0.09172616796195793,
+      "significant_005": false
+    }
+  ],
+  "outputs": {
+    "correlations_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/first_minute_feature_correlations.csv",
+    "winner_vs_bottom_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/first_minute_winner_vs_bottom.csv",
+    "results_json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/first_minute_results.json",
+    "correlations_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/first_minute_correlations.html",
+    "timeline_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/first_minute_timeline.html"
+  }
+}

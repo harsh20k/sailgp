@@ -1,0 +1,297 @@
+{
+  "experiment": "c4_team_style_clustering",
+  "n_teams": 13,
+  "chosen_k": 2,
+  "silhouette_score": 0.3291730778671504,
+  "silhouette_by_k": {
+    "2": 0.3291730778671504,
+    "3": 0.30824485912749117,
+    "4": 0.18960626114324416
+  },
+  "imputed_features": {
+    "dirty_air_exposure_fraction": 1,
+    "mean_flight_quality": 1,
+    "tack_recovery_time": 1
+  },
+  "archetypes": {
+    "0": "Consistent performers",
+    "1": "Manoeuvre-limited upwind"
+  },
+  "cluster_summary": [
+    {
+      "cluster": 0,
+      "n_teams": 8,
+      "teams": "AUS, DEN, ESP, FRA, GBR, GER, NZL, SUI",
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 37.603886567733625,
+      "std_upwind_regret": 34.92624663502508,
+      "mean_downwind_regret": 16.830382259847934,
+      "std_downwind_regret": 17.388217030279957,
+      "upwind_downwind_ratio": 2.28434317840929,
+      "dirty_air_exposure_fraction": 0.08609008698812565,
+      "mean_flight_quality": 0.7988377681456361,
+      "tack_recovery_time": 5.915776872559012,
+      "performance_index": 0.6433970805717711
+    },
+    {
+      "cluster": 1,
+      "n_teams": 5,
+      "teams": "BRA, CAN, ITA, SWE, USA",
+      "archetype": "Manoeuvre-limited upwind",
+      "mean_upwind_regret": 51.59905494023805,
+      "std_upwind_regret": 49.04708161668428,
+      "mean_downwind_regret": 25.18778688448385,
+      "std_downwind_regret": 28.104647929505063,
+      "upwind_downwind_ratio": 2.117874376386479,
+      "dirty_air_exposure_fraction": 0.0940443815589969,
+      "mean_flight_quality": 0.711384640029522,
+      "tack_recovery_time": 11.16491720812102,
+      "performance_index": 0.5443772780947764
+    }
+  ],
+  "team_assignments": [
+    {
+      "team": "AUS",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 28.844454133233317,
+      "std_upwind_regret": 28.75594322101007,
+      "mean_downwind_regret": 13.504797806610878,
+      "std_downwind_regret": 16.654492707347412,
+      "upwind_downwind_ratio": 2.135867159678123,
+      "dirty_air_exposure_fraction": 0.08516483516483514,
+      "mean_flight_quality": 0.8520258348372314,
+      "tack_recovery_time": 2.711983887210473,
+      "performance_index": 0.7159743245879184
+    },
+    {
+      "team": "BRA",
+      "cluster": 1,
+      "archetype": "Manoeuvre-limited upwind",
+      "mean_upwind_regret": 46.24494873046874,
+      "std_upwind_regret": 46.49085467667804,
+      "mean_downwind_regret": 29.59969820295068,
+      "std_downwind_regret": 41.06761346159833,
+      "upwind_downwind_ratio": 1.5623452784345875,
+      "dirty_air_exposure_fraction": 0.09317904993909862,
+      "mean_flight_quality": 0.739642472398322,
+      "tack_recovery_time": 16.053403141361258,
+      "performance_index": 0.5660646787592462
+    },
+    {
+      "team": "CAN",
+      "cluster": 1,
+      "archetype": "Manoeuvre-limited upwind",
+      "mean_upwind_regret": 45.175251688275985,
+      "std_upwind_regret": 45.34201750633328,
+      "mean_downwind_regret": 20.012732192089647,
+      "std_downwind_regret": 25.949990919668817,
+      "upwind_downwind_ratio": 2.257325549288679,
+      "dirty_air_exposure_fraction": 0.10773601398601394,
+      "mean_flight_quality": 0.7479516438813341,
+      "tack_recovery_time": 12.6045197740113,
+      "performance_index": 0.6011417178254078
+    },
+    {
+      "team": "DEN",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 41.32451911533579,
+      "std_upwind_regret": 38.341960942842775,
+      "mean_downwind_regret": 19.661606195810716,
+      "std_downwind_regret": 21.440258169898325,
+      "upwind_downwind_ratio": 2.101787549998879,
+      "dirty_air_exposure_fraction": 0.08286167081729677,
+      "mean_flight_quality": 0.7707219157552571,
+      "tack_recovery_time": 6.87012987012987,
+      "performance_index": 0.6221946769629759
+    },
+    {
+      "team": "ESP",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 40.1158946454525,
+      "std_upwind_regret": 34.094534700093504,
+      "mean_downwind_regret": 13.211669596230127,
+      "std_downwind_regret": 12.13414761476497,
+      "upwind_downwind_ratio": 3.0363985681945405,
+      "dirty_air_exposure_fraction": 0.1024957596316937,
+      "mean_flight_quality": 0.782811619876316,
+      "tack_recovery_time": 8.813455657492355,
+      "performance_index": 0.6667293805055883
+    },
+    {
+      "team": "FRA",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 37.74454367160797,
+      "std_upwind_regret": 34.039973908383594,
+      "mean_downwind_regret": 18.727904728480723,
+      "std_downwind_regret": 18.244376836093785,
+      "upwind_downwind_ratio": 2.0154173261148336,
+      "dirty_air_exposure_fraction": 0.07018081520073546,
+      "mean_flight_quality": 0.79923291604982,
+      "tack_recovery_time": 6.303265940902022,
+      "performance_index": 0.6211262286560959
+    },
+    {
+      "team": "GBR",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 40.727017528132414,
+      "std_upwind_regret": 38.44508342469046,
+      "mean_downwind_regret": 15.89479286726132,
+      "std_downwind_regret": 17.32292070423179,
+      "upwind_downwind_ratio": 2.5622867733003494,
+      "dirty_air_exposure_fraction": 0.06717081850533806,
+      "mean_flight_quality": 0.7696714072271871,
+      "tack_recovery_time": 8.095487932843652,
+      "performance_index": 0.6446077613226985
+    },
+    {
+      "team": "GER",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 37.40941995732925,
+      "std_upwind_regret": 31.154248449443628,
+      "mean_downwind_regret": 17.823172870435208,
+      "std_downwind_regret": 18.859524916335204,
+      "upwind_downwind_ratio": 2.098920334178175,
+      "dirty_air_exposure_fraction": 0.10158654984608097,
+      "mean_flight_quality": 0.8248859444071793,
+      "tack_recovery_time": 3.157721796276013,
+      "performance_index": 0.6347034749478524
+    },
+    {
+      "team": "ITA",
+      "cluster": 1,
+      "archetype": "Manoeuvre-limited upwind",
+      "mean_upwind_regret": 66.35422164515442,
+      "std_upwind_regret": 66.70027556731583,
+      "mean_downwind_regret": 21.85403826019981,
+      "std_downwind_regret": 23.55637760725959,
+      "upwind_downwind_ratio": 3.036245331646443,
+      "dirty_air_exposure_fraction": 0.09920459566946527,
+      "mean_flight_quality": 0.5601276258693163,
+      "tack_recovery_time": 13.814713896457766,
+      "performance_index": 0.5429248876379268
+    },
+    {
+      "team": "NZL",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 39.16764677895437,
+      "std_upwind_regret": 41.88885009376008,
+      "mean_downwind_regret": 14.916108131408732,
+      "std_downwind_regret": 16.544129493507448,
+      "upwind_downwind_ratio": 2.625862351887847,
+      "dirty_air_exposure_fraction": 0.09033598019365321,
+      "mean_flight_quality": 0.7704646125401623,
+      "tack_recovery_time": 7.299890516460284,
+      "performance_index": 0.6227505778137199
+    },
+    {
+      "team": "SUI",
+      "cluster": 0,
+      "archetype": "Consistent performers",
+      "mean_upwind_regret": 35.49759671182338,
+      "std_upwind_regret": 32.68937833997652,
+      "mean_downwind_regret": 20.90300588254576,
+      "std_downwind_regret": 17.905885800060723,
+      "upwind_downwind_ratio": 1.6982053639215717,
+      "dirty_air_exposure_fraction": 0.0889242665453718,
+      "mean_flight_quality": 0.8208878944719354,
+      "tack_recovery_time": 4.074279379157428,
+      "performance_index": 0.6190902197773197
+    },
+    {
+      "team": "SWE",
+      "cluster": 1,
+      "archetype": "Manoeuvre-limited upwind",
+      "mean_upwind_regret": 51.250990295410176,
+      "std_upwind_regret": 40.4128846088843,
+      "mean_downwind_regret": 30.824491262435817,
+      "std_downwind_regret": 31.25659899283705,
+      "upwind_downwind_ratio": 1.6626710838166228,
+      "dirty_air_exposure_fraction": 0.07835455435847204,
+      "mean_flight_quality": 0.7702073093250675,
+      "tack_recovery_time": 7.729651162790698,
+      "performance_index": 0.48329586282034015
+    },
+    {
+      "team": "USA",
+      "cluster": 1,
+      "archetype": "Manoeuvre-limited upwind",
+      "mean_upwind_regret": 48.96986234188088,
+      "std_upwind_regret": 46.28937572420999,
+      "mean_downwind_regret": 23.64797450474328,
+      "std_downwind_regret": 18.69265866616154,
+      "upwind_downwind_ratio": 2.070784638746061,
+      "dirty_air_exposure_fraction": 0.09174769384193462,
+      "mean_flight_quality": 0.73899414867357,
+      "tack_recovery_time": 5.622298065984073,
+      "performance_index": 0.5284592434309615
+    }
+  ],
+  "validation": {
+    "spearman_performance_index_vs_season_points": {
+      "rho": 0.701758705822504,
+      "p_value": 0.01096733982623105,
+      "n_teams": 12
+    },
+    "spearman_cluster_rank_vs_season_points": {
+      "rho": -0.5650804326573637,
+      "p_value": 0.05555377687257667,
+      "n_teams": 12
+    },
+    "season_points": {
+      "AUS": 69.0,
+      "ESP": 62.0,
+      "GER": 51.0,
+      "GBR": 34.0,
+      "SUI": 34.0,
+      "USA": 32.0,
+      "CAN": 30.0,
+      "ITA": 30.0,
+      "FRA": 22.0,
+      "DEN": 21.0,
+      "SWE": 15.0,
+      "BRA": 9.0
+    },
+    "cluster_centroids": [
+      {
+        "cluster": 0,
+        "cluster_centroid_pi": 0.6433970805717711,
+        "cluster_rank": 1
+      },
+      {
+        "cluster": 1,
+        "cluster_centroid_pi": 0.5443772780947764,
+        "cluster_rank": 2
+      }
+    ]
+  },
+  "success_criteria": {
+    "silhouette": {
+      "value": 0.3291730778671504,
+      "threshold": 0.3,
+      "pass": true,
+      "by_k": {
+        "2": 0.3291730778671504,
+        "3": 0.30824485912749117,
+        "4": 0.18960626114324416
+      }
+    },
+    "spearman_performance_index": {
+      "value": 0.701758705822504,
+      "threshold": 0.4,
+      "pass": true
+    }
+  },
+  "overall_pass": true,
+  "outputs": {
+    "clusters_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/team_style_clusters.csv",
+    "radar_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/team_style_radar.html",
+    "results_json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/team_style_results.json"
+  }
+}

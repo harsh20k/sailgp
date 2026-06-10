@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Race decided in 60 seconds — SailGP</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #8b949e; --border: #30363d; --accent: #58a6ff; --success: #3fb950; --warn: #d29922; --danger: #f85149; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); margin: 0; line-height: 1.55; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 28px 64px; }
+    h1 { font-size: 1.75rem; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin: 32px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    h3 { font-size: 1rem; margin: 16px 0 8px; color: var(--muted); }
+    p, li { color: var(--fg); }
+    .muted { color: var(--muted); font-size: 0.875rem; }
+    .pill { display: inline-block; background: #21262d; border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; font-size: 0.75rem; font-weight: 600; margin-right: 8px; }
+    .chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 20px 0; }
+    .chain div { border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 0.8rem; background: #161b22; }
+    .chain strong { display: block; color: var(--accent); font-size: 0.7rem; margin-bottom: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
+    .stat { border: 1px solid var(--border); border-radius: 6px; padding: 12px; background: #161b22; }
+    .stat .v { font-size: 1.25rem; font-weight: 700; }
+    .stat .l { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+    .stat.success .v { color: var(--success); }
+    .stat.warn .v { color: var(--warn); }
+    .stat.danger .v { color: var(--danger); }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    .callout { border-left: 3px solid var(--accent); background: #161b22; padding: 12px 16px; margin: 12px 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .callout.success { border-color: var(--success); }
+    .callout.warn { border-color: var(--warn); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: #161b22; }
+    .chart { min-height: 220px; margin: 8px 0; }
+    .section-visual { margin: 16px 0 20px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #161b22; }
+    .section-visual img { display: block; width: 100%; height: auto; max-height: 340px; object-fit: cover; object-position: center; }
+    .section-visual figcaption { padding: 10px 14px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); }
+    .tech { font-size: 0.85rem; color: var(--muted); margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--border); }
+    code { background: #21262d; padding: 1px 5px; border-radius: 3px; font-size: 0.8rem; }
+    @media print {
+      body { background: #fff; color: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .wrap { max-width: 100%; padding: 12px; }
+      h2 { page-break-after: avoid; }
+      .section { page-break-inside: avoid; }
+      .chain, .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <p class="muted"><span class="pill">Foil Forward · On the Water</span></p>
+  <h1>The race is decided in the first 60 seconds</h1>
+  <p class="muted">Four experiments, one causal chain. Source: F50 telemetry — Bermuda 2026 (8 races) + Halifax 2024 (6 races).</p>
+
+  <div class="chain">
+    <div><strong>1 · C8</strong>Winners separate in the first minute<br/>Top-4 fly 40 cm higher, 15 km/h faster within 20 s.</div>
+    <div><strong>2 · C2</strong>Because of flight quality<br/>86% of residual gap after leg-length control.</div>
+    <div><strong>3 · A4b</strong>Measured vs ghost boat<br/>Total regret tracks rank at ρ = 0.915.</div>
+    <div><strong>4 · C6</strong>Fixable failure: restart<br/>ITA 61 s to re-fly vs AUS 2 s (~8 min/race).</div>
+  </div>
+
+  <section class="section">
+    <h2><span class="pill">C8</span> The first 60 seconds</h2>
+    <figure class="section-visual">
+      <img src="assets/race-decided/img1_first60seconds.png" alt="Two foiling catamarans at 20 seconds after the start — one flying high, one lower and slower" />
+      <figcaption>Within 20 seconds of the gun, eventual winners are already flying higher and moving faster — before any tactical choices.</figcaption>
+    </figure>
+    <div class="grid2">
+      <div>
+        <p>Within the first <strong>20 seconds</strong>, eventual top-4 boats already fly higher and move faster — before tactical choices. <strong>11 of 12</strong> sensor gaps survive wind-speed control (= skill, not luck).</p>
+        <div class="callout">SailGP treats the start as the biggest finish predictor — this puts a number on it.</div>
+      </div>
+      <div>
+        <div id="chart-c8" class="chart"></div>
+        <p class="muted">Mean ride height, first 60 s (mm). Higher = cleaner flight.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat success"><div class="v">+15.3 km/h</div><div class="l">Winner speed (first 60 s)</div></div>
+      <div class="stat success"><div class="v">+425 mm</div><div class="l">Port foil higher</div></div>
+      <div class="stat"><div class="v">11 / 12</div><div class="l">Gaps survive wind control</div></div>
+      <div class="stat"><div class="v">116</div><div class="l">Start windows analysed</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2><span class="pill">C2</span> Flight quality drives the gap</h2>
+    <figure class="section-visual">
+      <img src="assets/race-decided/img2_flight_quality.png" alt="Catamaran flying cleanly on hydrofoils above the water — stable flight quality" />
+      <figcaption>Flight quality = how stably and cleanly the boat stays up on its foils. Winners hold a cleaner, higher ride.</figcaption>
+    </figure>
+    <div class="grid2">
+      <div>
+        <p>After removing leg length (74.8% of raw variance), flight quality explains <strong>86.3%</strong> of controllable regret residual. Dirty air + VMG efficiency ≈ 14% combined.</p>
+        <div class="callout success">Once you control for leg length, how well the boat flies explains 86% of everything.</div>
+      </div>
+      <div>
+        <div id="chart-c2" class="chart"></div>
+        <p class="muted">Share of residual variance (R² = 0.195).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2><span class="pill">A4b</span> Ghost boat — fair benchmark</h2>
+    <figure class="section-visual">
+      <img src="assets/race-decided/img3_ghost_boat.png" alt="Real racing catamaran chasing a translucent blue ghost boat ahead on the same course" />
+      <figcaption>The ghost boat is a virtual perfect sailor in each team’s wind. Regret = seconds lost chasing that ideal path.</figcaption>
+    </figure>
+    <div class="grid2">
+      <div>
+        <p>Each team gets its own ghost path (same polar, their wind). <strong>Regret</strong> = actual leg time − ghost leg time. Total regret vs finish rank: <strong>Spearman ρ = 0.915</strong>. Upwind regret 2.2× downwind.</p>
+        <div class="callout">League-wide performance index — every crew judged against the same physics.</div>
+      </div>
+      <div>
+        <div id="chart-a4" class="chart"></div>
+        <p class="muted">Mean regret (s) by leg type. MWU p ≈ 4×10⁻¹².</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat success"><div class="v">ρ = 0.915</div><div class="l">Regret vs finish rank</div></div>
+      <div class="stat warn"><div class="v">2.2×</div><div class="l">Upwind vs downwind regret</div></div>
+      <div class="stat"><div class="v">AUS 28.8s</div><div class="l">Best upwind regret</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2><span class="pill">C6</span> Slow restarts after turns</h2>
+    <figure class="section-visual">
+      <img src="assets/race-decided/img4_restart_failure.png" alt="Split view: boat back on foils in 2 seconds vs boat still wallowing after 61 seconds" />
+      <figcaption>After each mark rounding, elite teams re-fly in ~2 s. The slowest can take over a minute — ~8 minutes lost per race.</figcaption>
+    </figure>
+    <div class="grid2">
+      <div>
+        <p>ITA loses time <em>after</em> mark roundings — re-establishing flight takes <strong>61 s</strong> vs AUS <strong>1.5 s</strong>. ~8 min/race self-inflicted. Explains <strong>52.7%</strong> of upwind-regret variance (ρ = 0.65).</p>
+        <div class="callout warn">Fix the restart — most of the upwind gap closes.</div>
+      </div>
+      <div>
+        <div id="chart-c6" class="chart"></div>
+        <p class="muted">Seconds until flight quality &gt; 0.7 after leg boundary.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat danger"><div class="v">61.3 s</div><div class="l">ITA re-fly time</div></div>
+      <div class="stat success"><div class="v">1.5 s</div><div class="l">AUS re-fly time</div></div>
+      <div class="stat"><div class="v">52.7%</div><div class="l">Upwind gap explained</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2><span class="pill">Wind</span> Course wind field</h2>
+    <figure class="section-visual">
+      <img src="assets/race-decided/img5_wind_field.png" alt="Aerial view of race course with colour-coded wind arrows across the water" />
+      <figcaption>Mark sensors interpolated across the full course (IDW) — wind speed and direction for every manoeuvre on the map.</figcaption>
+    </figure>
+    <p class="muted">Interactive version: <code>dataExploration/exported/wind_field_interp_Bermuda_Race_5.html</code></p>
+  </section>
+
+  <section class="section">
+    <h2>Glossary</h2>
+    <table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Flight quality</td><td>0–1 score from ride height + foiling sensors (AUC 0.978)</td></tr>
+      <tr><td>Ghost boat</td><td>Per-team optimal path using fleet polar + that boat's wind</td></tr>
+      <tr><td>Regret</td><td>Seconds lost vs ghost over a leg (actual − ghost time)</td></tr>
+      <tr><td>Re-establishment</td><td>Seconds until flight quality &gt; 0.7 after a turn</td></tr>
+    </table>
+  </section>
+
+  <p class="muted tech">Exported from race-decided-in-60-seconds.canvas.tsx · Print: Cmd+P → Save as PDF · Enable background graphics</p>
+</div>
+<script>
+Plotly.newPlot('chart-c8', [
+  {x:['Port foil','Starboard foil'], y:[1066,1083], name:'Winners (1–4)', type:'bar', marker:{color:'#3fb950'}},
+  {x:['Port foil','Starboard foil'], y:[642,817], name:'Bottom (8+)', type:'bar', marker:{color:'#f85149'}}
+], {barmode:'group', paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:30,b:40,l:50,r:20}, yaxis:{title:'mm'}, showlegend:true});
+
+Plotly.newPlot('chart-c2', [{
+  labels:['Flight quality','Dirty air','VMG efficiency'],
+  values:[86.3,7.2,6.5],
+  type:'pie',
+  hole:0.45,
+  marker:{colors:['#3fb950','#d29922','#58a6ff']}
+}], {paper_bgcolor:'#0d1117', font:{color:'#e6edf3'}, margin:{t:20,b:20,l:20,r:20}, showlegend:true});
+
+Plotly.newPlot('chart-a4', [{
+  x:['Upwind legs','Downwind legs'], y:[41.4,19.0], type:'bar', marker:{color:'#d29922'},
+  text:['41.4 s','19.0 s'], textposition:'outside'
+}], {paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:30,b:40,l:50,r:20}, yaxis:{title:'Mean regret (s)'}, shapes:[{type:'line',x0:-0.5,x1:1.5,y0:30,y1:30,line:{dash:'dot',color:'#8b949e'}}]});
+
+Plotly.newPlot('chart-c6', [{
+  y:['AUS','GER','Fleet mean','ITA'], x:[1.5,1.7,15.6,61.3], type:'bar', orientation:'h',
+  marker:{color:['#3fb950','#3fb950','#8b949e','#f85149']},
+  text:['1.5 s','1.7 s','15.6 s','61.3 s'], textposition:'outside'
+}], {paper_bgcolor:'#0d1117', plot_bgcolor:'#161b22', font:{color:'#e6edf3'}, margin:{t:20,b:40,l:80,r:60}, xaxis:{title:'Seconds to re-fly'}});
+</script>
+<p style="font-family:sans-serif;font-size:12px;color:#888;text-align:right;margin:4px 8px 8px">Source: SailGP data</p>
+</body>
+</html>

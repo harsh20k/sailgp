@@ -1,0 +1,109 @@
+{
+  "experiment_id": "exp2_vmg_residual",
+  "polar_r2_train": 0.9381586394500774,
+  "lstm_rmse_val": 7.669890044019765,
+  "ridge_rmse_val": 10.158056479966792,
+  "persist_rmse_val": 9.121330464005442,
+  "spearman_rho_val": -0.04118188532464272,
+  "spearman_rho_test": 0.0,
+  "venue_transfer": {
+    "rho": 0.5166666666666667,
+    "pass": true,
+    "n_teams": 9
+  },
+  "leg_breakdown_val": {
+    "upwind": {
+      "n": 1172,
+      "residual_std": 7.001639366149902,
+      "rmse": 6.419059043212186,
+      "mean_residual": -0.5829194784164429
+    },
+    "downwind": {
+      "n": 740,
+      "residual_std": 9.678689956665039,
+      "rmse": 9.313327010126864,
+      "mean_residual": 1.587775468826294
+    }
+  },
+  "leg_breakdown_test": {
+    "upwind": {
+      "n": 2737,
+      "residual_std": 8.560539245605469,
+      "rmse": 8.08860868846656,
+      "mean_residual": 1.0073951482772827
+    },
+    "downwind": {
+      "n": 2018,
+      "residual_std": 12.020716667175293,
+      "rmse": 11.605092713110173,
+      "mean_residual": 0.00024057166592683643
+    }
+  },
+  "success": {
+    "polar_r2": true,
+    "lstm_beats_ridge": true,
+    "spearman_rank_val": false,
+    "venue_transfer": true
+  },
+  "details": {
+    "polar_r2_train": 0.9381586394500774,
+    "lstm_rmse_val": 7.669890044019765,
+    "lstm_rmse_test": 9.737354783822717,
+    "ridge_rmse_val": 10.158056479966792,
+    "ridge_rmse_test": 12.224353958877094,
+    "persist_rmse_val": 9.121330464005442,
+    "spearman_rho_val": -0.04118188532464272,
+    "spearman_p_val": 0.8841422758325579,
+    "spearman_rho_test": 0.0,
+    "spearman_p_test": 1.0,
+    "n_train_windows": 7789,
+    "n_val_windows": 1912,
+    "n_test_windows": 4755,
+    "n_polar_bins": 280,
+    "n_valid_bins": 196
+  },
+  "history": {
+    "train_loss": [
+      83.41249259573515,
+      77.08062325149287,
+      74.30854320526123,
+      71.88800511594678,
+      70.02514418617623,
+      67.86105426413114,
+      66.95590902547367,
+      65.25133387768855,
+      64.83124253007232,
+      63.45522198911573,
+      61.18190787268467,
+      59.66392909503374,
+      58.90440170100478,
+      58.745563069327936,
+      55.31995548185755,
+      54.449810012442164
+    ],
+    "val_loss": [
+      62.517650540669756,
+      62.003282928466795,
+      61.78248399098714,
+      62.283368301391604,
+      60.542395401000974,
+      58.6584726969401,
+      59.127035268147786,
+      58.996340370178224,
+      59.1909862836202,
+      61.78109912872314,
+      60.37783457438151,
+      61.25774211883545,
+      62.88236115773519,
+      61.355774370829266,
+      61.48893016179402,
+      66.01861737569173
+    ]
+  },
+  "output_paths": {
+    "polar_table": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/exp2_vmg_residual_polar_table.csv",
+    "residual_timeseries": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/exp2_vmg_residual_residual_timeseries.csv",
+    "skill_ranking": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/exp2_vmg_residual_skill_ranking.csv",
+    "results_json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/exp2_vmg_residual_results.json"
+  }
+}

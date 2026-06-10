@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import math
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -11,6 +12,12 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from dataExploration.wind_field import course_bbox, grid_quiver_traces, interpolate_wind_grid
 
 TEAM_COLORS = px.colors.qualitative.Plotly
 PLOTLY_LAYOUT = dict(template="plotly_dark", font=dict(family="IBM Plex Mono, monospace"))
@@ -178,6 +185,47 @@ def offset_latlon(lat: float, lon: float, bearing_deg: float, distance_m: float)
         math.cos(angular) - math.sin(lat1) * math.sin(lat2),
     )
     return math.degrees(lat2), math.degrees(lon2)
+
+
+def tws_to_color(tws_kmh: float, tws_min: float, tws_max: float) -> str:
+    """Map TWS to a blue → yellow → red hex color."""
+    if tws_max <= tws_min:
+        norm = 0.5
+    else:
+        norm = (tws_kmh - tws_min) / (tws_max - tws_min)
+    norm = max(0.0, min(1.0, norm))
+    stops = [(0.0, (94, 200, 255)), (0.5, (255, 215, 0)), (1.0, (248, 81, 73))]
+    for i in range(len(stops) - 1):
+        lo, hi = stops[i], stops[i + 1]
+        if norm <= hi[0]:
+            t = (norm - lo[0]) / (hi[0] - lo[0]) if hi[0] > lo[0] else 0.0
+            r = int(lo[1][0] + t * (hi[1][0] - lo[1][0]))
+            g = int(lo[1][1] + t * (hi[1][1] - lo[1][1]))
+            b = int(lo[1][2] + t * (hi[1][2] - lo[1][2]))
+            return f"#{r:02x}{g:02x}{b:02x}"
+    return "#f85149"
+
+
+def snap_marks_at_time(marks: pd.DataFrame, timestamp) -> pd.DataFrame:
+    """Nearest mark reading per MARK within ±2 s of the frame time."""
+    if marks.empty:
+        return marks
+    ts = pd.Timestamp(timestamp)
+    tolerance = pd.Timedelta(seconds=2)
+    rows: list[pd.Series] = []
+    for _, grp in marks.groupby("MARK", sort=False):
+        grp = grp.sort_values("DATETIME")
+        target = pd.DataFrame({"DATETIME": [ts]})
+        hit = pd.merge_asof(
+            target,
+            grp,
+            on="DATETIME",
+            direction="nearest",
+            tolerance=tolerance,
+        )
+        if hit["tws"].notna().any():
+            rows.append(hit.iloc[0])
+    return pd.DataFrame(rows) if rows else marks.iloc[0:0]
 
 
 def wind_arrow_segments(
@@ -376,9 +424,8 @@ def marks_trace(mark_snap: pd.DataFrame) -> go.Scattermap:
     )
 
 
-def wind_arrows_trace(mark_snap: pd.DataFrame, *, tws_min: float, tws_max: float) -> go.Scattermap:
-    lats: list[float | None] = []
-    lons: list[float | None] = []
+def wind_arrow_traces(mark_snap: pd.DataFrame, *, tws_min: float, tws_max: float) -> list[go.Scattermap]:
+    traces: list[go.Scattermap] = []
     for row in mark_snap.itertuples(index=False):
         seg_lats, seg_lons = wind_arrow_segments(
             row.lat,
@@ -388,18 +435,173 @@ def wind_arrows_trace(mark_snap: pd.DataFrame, *, tws_min: float, tws_max: float
             tws_min=tws_min,
             tws_max=tws_max,
         )
-        lats.extend(seg_lats)
-        lons.extend(seg_lons)
+        color = tws_to_color(row.tws, tws_min, tws_max)
+        traces.append(
+            go.Scattermap(
+                lat=seg_lats,
+                lon=seg_lons,
+                mode="lines",
+                line=dict(width=3, color=color),
+                name=f"Wind {row.MARK}",
+                hovertemplate=(
+                    f"<b>{row.MARK}</b><br>"
+                    f"TWS: {row.tws:.1f} km/h<br>"
+                    f"TWD: {row.twd:.0f}° (from)<br>"
+                    "<extra></extra>"
+                ),
+                showlegend=False,
+            )
+        )
+    return traces
 
-    return go.Scattermap(
-        lat=lats,
-        lon=lons,
-        mode="lines",
-        line=dict(width=3, color="#5ec8ff"),
-        hoverinfo="skip",
-        name="Wind",
-        showlegend=False,
+
+def _wind_legend_annotation(tws_min: float, tws_max: float, *, interpolated: bool = False) -> dict:
+    if interpolated:
+        text = (
+            f"Grid arrows interpolated from mark sensors (IDW); "
+            f"length &amp; color = TWS ({tws_min:.0f}–{tws_max:.0f} km/h); direction = downwind"
+        )
+    else:
+        text = (
+            f"Arrow length &amp; color = TWS ({tws_min:.0f}–{tws_max:.0f} km/h); "
+            "direction = downwind"
+        )
+    return dict(
+        text=text,
+        xref="paper",
+        yref="paper",
+        x=0.01,
+        y=0.99,
+        xanchor="left",
+        yanchor="top",
+        showarrow=False,
+        font=dict(size=11, color="#cccccc"),
+        bgcolor="rgba(0,0,0,0.45)",
+        borderpad=4,
     )
+
+
+def _animation_controls(times: list, step: int, *, y_pos: float) -> tuple[list, list]:
+    slider_steps = []
+    for i, t in enumerate(times):
+        label = pd.Timestamp(t).strftime("%H:%M:%S")
+        slider_steps.append(
+            dict(
+                method="animate",
+                args=[[str(t)], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate"}],
+                label=label if i % max(1, len(times) // 12) == 0 else "",
+            )
+        )
+    frame_ms = max(100, int(1000 / step))
+    updatemenus = [
+        dict(
+            type="buttons",
+            showactive=False,
+            x=0.02,
+            y=y_pos,
+            xanchor="left",
+            yanchor="bottom",
+            buttons=[
+                dict(
+                    label="Play",
+                    method="animate",
+                    args=[
+                        None,
+                        {
+                            "frame": {"duration": frame_ms, "redraw": True},
+                            "fromcurrent": True,
+                            "transition": {"duration": 0},
+                        },
+                    ],
+                ),
+                dict(
+                    label="Pause",
+                    method="animate",
+                    args=[
+                        [None],
+                        {"frame": {"duration": 0, "redraw": False}, "mode": "immediate"},
+                    ],
+                ),
+            ],
+        )
+    ]
+    sliders = [
+        dict(
+            active=0,
+            x=0.12,
+            y=y_pos,
+            len=0.84,
+            xanchor="left",
+            yanchor="bottom",
+            pad=dict(t=40),
+            currentvalue=dict(prefix="Time: ", visible=True),
+            steps=slider_steps,
+        )
+    ]
+    return updatemenus, sliders
+
+
+def build_wind_field_figure(
+    marks: pd.DataFrame,
+    course_limits: list[dict],
+    *,
+    venue: str,
+    race: str,
+    step: int,
+    show_boundaries: bool,
+    interpolated: bool = False,
+    grid_size: int = 18,
+) -> go.Figure:
+    if marks.empty:
+        raise ValueError(f"No mark wind data for {venue} {race}")
+
+    times = sorted(marks["DATETIME"].unique())[::step]
+    if len(times) < 2:
+        raise ValueError("Need at least two mark timestamps after filtering/step.")
+
+    tws_min = float(marks["tws"].min())
+    tws_max = float(marks["tws"].max())
+    boundary_traces = course_limit_traces(course_limits) if show_boundaries else []
+    bbox = course_bbox(course_limits if show_boundaries else [], marks)
+    center = VENUE_CENTER.get(
+        venue,
+        {"lat": float(marks["lat"].mean()), "lon": float(marks["lon"].mean()), "zoom": 12},
+    )
+
+    def frame_traces(timestamp) -> list:
+        traces: list = list(boundary_traces)
+        mark_snap = snap_marks_at_time(marks, timestamp)
+        if not mark_snap.empty:
+            if interpolated:
+                grid = interpolate_wind_grid(mark_snap, bbox, n=grid_size)
+                traces.extend(
+                    grid_quiver_traces(grid, tws_min=tws_min, tws_max=tws_max, color_fn=tws_to_color)
+                )
+            else:
+                traces.extend(wind_arrow_traces(mark_snap, tws_min=tws_min, tws_max=tws_max))
+            traces.append(marks_trace(mark_snap))
+        return traces
+
+    title_suffix = "interpolated mark wind field" if interpolated else "mark wind field"
+    fig = go.Figure(data=frame_traces(times[0]))
+    fig.frames = [go.Frame(data=frame_traces(t), name=str(t)) for t in times]
+
+    updatemenus, sliders = _animation_controls(times, step, y_pos=0.02)
+    fig.update_layout(
+        **PLOTLY_LAYOUT,
+        title=f"{venue} {race} — {title_suffix}",
+        height=720,
+        margin=dict(l=0, r=0, t=48, b=0),
+        map=dict(
+            style="carto-darkmatter",
+            center=dict(lat=center["lat"], lon=center["lon"]),
+            zoom=center["zoom"],
+        ),
+        annotations=[_wind_legend_annotation(tws_min, tws_max, interpolated=interpolated)],
+        updatemenus=updatemenus,
+        sliders=sliders,
+    )
+    return fig
 
 
 def build_replay_figure(
@@ -428,9 +630,9 @@ def build_replay_figure(
     def frame_traces(timestamp) -> list:
         snap = boats[boats["DATETIME"] == timestamp]
         traces: list = list(boundary_traces)
-        mark_snap = marks[marks["DATETIME"] == timestamp]
+        mark_snap = snap_marks_at_time(marks, timestamp)
         if not mark_snap.empty:
-            traces.append(wind_arrows_trace(mark_snap, tws_min=tws_min, tws_max=tws_max))
+            traces.extend(wind_arrow_traces(mark_snap, tws_min=tws_min, tws_max=tws_max))
             traces.append(marks_trace(mark_snap))
         if trail_seconds > 0:
             traces.append(trail_trace(boats, timestamp, colors, trail_seconds=trail_seconds))
@@ -452,18 +654,7 @@ def build_replay_figure(
     fig.add_trace(initial[-1], row=2, col=1)
     fig.frames = [go.Frame(data=frame_traces(t), name=str(t)) for t in times]
 
-    slider_steps = []
-    for i, t in enumerate(times):
-        label = pd.Timestamp(t).strftime("%H:%M:%S")
-        slider_steps.append(
-            dict(
-                method="animate",
-                args=[[str(t)], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate"}],
-                label=label if i % max(1, len(times) // 12) == 0 else "",
-            )
-        )
-
-    frame_ms = max(100, int(1000 / step))
+    updatemenus, sliders = _animation_controls(times, step, y_pos=0.34)
     fig.update_layout(
         **PLOTLY_LAYOUT,
         title=f"{venue} {race} — boat replay + wind + boundaries",
@@ -474,51 +665,9 @@ def build_replay_figure(
             center=dict(lat=center["lat"], lon=center["lon"]),
             zoom=center["zoom"],
         ),
-        updatemenus=[
-            dict(
-                type="buttons",
-                showactive=False,
-                x=0.02,
-                y=0.34,
-                xanchor="left",
-                yanchor="bottom",
-                buttons=[
-                    dict(
-                        label="Play",
-                        method="animate",
-                        args=[
-                            None,
-                            {
-                                "frame": {"duration": frame_ms, "redraw": True},
-                                "fromcurrent": True,
-                                "transition": {"duration": 0},
-                            },
-                        ],
-                    ),
-                    dict(
-                        label="Pause",
-                        method="animate",
-                        args=[
-                            [None],
-                            {"frame": {"duration": 0, "redraw": False}, "mode": "immediate"},
-                        ],
-                    ),
-                ],
-            )
-        ],
-        sliders=[
-            dict(
-                active=0,
-                x=0.12,
-                y=0.34,
-                len=0.84,
-                xanchor="left",
-                yanchor="bottom",
-                pad=dict(t=40),
-                currentvalue=dict(prefix="Time: ", visible=True),
-                steps=slider_steps,
-            )
-        ],
+        annotations=[_wind_legend_annotation(tws_min, tws_max)] if not marks.empty else [],
+        updatemenus=updatemenus,
+        sliders=sliders,
     )
     fig.update_yaxes(title_text="Distance sailed (km)", row=2, col=1)
     fig.update_xaxes(tickangle=-45, row=2, col=1)
@@ -529,7 +678,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate an animated SailGP race replay HTML.")
     parser.add_argument("--venue", default="Bermuda")
     parser.add_argument("--race", default="Race_1")
-    parser.add_argument("--output", type=Path, default=Path("race_replay.html"))
+    parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--step", type=int, default=1, help="Use every Nth second (2 = half speed/file size).")
     parser.add_argument(
         "--trail-seconds",
@@ -542,24 +691,77 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Include pre-start rows (default: racing status only).",
     )
+    parser.add_argument(
+        "--wind-only",
+        action="store_true",
+        help="Map-only animated mark wind field (no boats or distance chart).",
+    )
+    parser.add_argument(
+        "--no-boundaries",
+        action="store_true",
+        help="Omit course limit polygons from the map.",
+    )
+    parser.add_argument(
+        "--interpolated",
+        action="store_true",
+        help="With --wind-only: IDW grid quiver across course (marks still shown).",
+    )
+    parser.add_argument(
+        "--grid-size",
+        type=int,
+        default=18,
+        help="Grid resolution per axis for --interpolated (default 18).",
+    )
     return parser.parse_args()
+
+
+def default_output_path(venue: str, race: str, *, wind_only: bool, interpolated: bool = False) -> Path:
+    if wind_only and interpolated:
+        return Path(f"dataExploration/exported/wind_field_interp_{venue}_{race}.html")
+    if wind_only:
+        return Path(f"dataExploration/exported/wind_field_{venue}_{race}.html")
+    return Path("race_replay.html")
 
 
 def main() -> None:
     args = parse_args()
+    if args.output is None:
+        args.output = default_output_path(
+            args.venue, args.race, wind_only=args.wind_only, interpolated=args.interpolated
+        )
+
     base = find_data_root()
-    boats = load_race_boats(base, args.venue, args.race, racing_only=not args.include_prestart)
     marks = load_marks_timeseries(base, args.venue, args.race)
     course_limits, xml_path = load_course_limits(base, args.venue, args.race)
-    fig = build_replay_figure(
-        boats,
-        marks,
-        course_limits,
-        venue=args.venue,
-        race=args.race,
-        step=max(1, args.step),
-        trail_seconds=max(0, args.trail_seconds),
-    )
+    show_boundaries = not args.no_boundaries
+
+    if args.interpolated and not args.wind_only:
+        raise SystemExit("--interpolated requires --wind-only")
+
+    if args.wind_only:
+        fig = build_wind_field_figure(
+            marks,
+            course_limits,
+            venue=args.venue,
+            race=args.race,
+            step=max(1, args.step),
+            show_boundaries=show_boundaries,
+            interpolated=args.interpolated,
+            grid_size=max(4, args.grid_size),
+        )
+    else:
+        boats = load_race_boats(base, args.venue, args.race, racing_only=not args.include_prestart)
+        if not show_boundaries:
+            course_limits = []
+        fig = build_replay_figure(
+            boats,
+            marks,
+            course_limits,
+            venue=args.venue,
+            race=args.race,
+            step=max(1, args.step),
+            trail_seconds=max(0, args.trail_seconds),
+        )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     fig.write_html(
@@ -569,11 +771,19 @@ def main() -> None:
         config={"scrollZoom": True, "displayModeBar": True},
     )
     n_frames = len(fig.frames)
-    n_teams = boats["team"].nunique()
     limit_names = ", ".join(l["name"] for l in course_limits) or "none"
     xml_note = f" from {xml_path.name}" if xml_path else ""
-    print(f"Wrote {args.output.resolve()} ({n_frames} frames, {n_teams} teams)")
-    print(f"Course limits{xml_note}: {limit_names}")
+    if args.wind_only:
+        n_marks = marks["MARK"].nunique() if not marks.empty else 0
+        mode = "interpolated grid" if args.interpolated else "mark arrows"
+        print(f"Wrote {args.output.resolve()} ({n_frames} frames, {n_marks} marks, {mode})")
+    else:
+        n_teams = boats["team"].nunique()
+        print(f"Wrote {args.output.resolve()} ({n_frames} frames, {n_teams} teams)")
+    if show_boundaries:
+        print(f"Course limits{xml_note}: {limit_names}")
+    else:
+        print("Course limits: omitted (--no-boundaries)")
 
 
 if __name__ == "__main__":

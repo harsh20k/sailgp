@@ -1,0 +1,270 @@
+{
+  "experiment": "exp1_flight_quality",
+  "fusion_weights": {
+    "ae_quality": 0.5,
+    "tcn_prob": 0.5
+  },
+  "rolling_seconds": 5,
+  "n_rows": 50583,
+  "criteria": {
+    "Temporal alignment": {
+      "passed": true,
+      "value": 0.4528,
+      "threshold": "Score higher when foiling; gap>0.05, p<0.05",
+      "details": {
+        "foiling_mean": 0.8586052179275959,
+        "non_foiling_mean": 0.40578148110022827,
+        "p_value": 0.0
+      }
+    },
+    "AUC when thresholded": {
+      "passed": true,
+      "value": 0.977,
+      "threshold": "> 0.87 (AE baseline 0.865)",
+      "details": {
+        "ae_only_auc": 0.6471,
+        "improvement_vs_ae": 0.3299
+      }
+    },
+    "Team spread": {
+      "passed": true,
+      "value": 6,
+      "threshold": "Clear rank ordering on \u22654/8 races (Spearman \u03c1<-0.3 vs finish rank)",
+      "details": {
+        "per_race": [
+          {
+            "race": "Race_1",
+            "spearman_rho": -0.6636363636363638,
+            "passed": true
+          },
+          {
+            "race": "Race_2",
+            "spearman_rho": -0.8424242424242423,
+            "passed": true
+          },
+          {
+            "race": "Race_3",
+            "spearman_rho": -0.4424242424242424,
+            "passed": true
+          },
+          {
+            "race": "Race_4",
+            "spearman_rho": -0.29090909090909095,
+            "passed": false
+          },
+          {
+            "race": "Race_5",
+            "spearman_rho": -0.8391608391608393,
+            "passed": true
+          },
+          {
+            "race": "Race_6",
+            "spearman_rho": -0.9790209790209792,
+            "passed": true
+          },
+          {
+            "race": "Race_7",
+            "spearman_rho": -0.8251748251748254,
+            "passed": true
+          }
+        ],
+        "races_passed": 6
+      }
+    },
+    "Sanity check": {
+      "passed": true,
+      "value": "pre=excluded, foiling>0.7=0.934",
+      "threshold": "Pre-race <0.3 or excluded; >50% foiling seconds >0.7",
+      "details": {
+        "pre_race_mean": null,
+        "pre_race_excluded": true,
+        "clean_flying_mean": 0.8586052179275959,
+        "foiling_above_0.7_frac": 0.9340054995417049
+      }
+    }
+  },
+  "all_passed": true,
+  "leader_mid_gaps": [
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_1",
+      "leader_team": "USA",
+      "leader_mean_fq": 0.8758044793165909,
+      "mid_fleet_mean_fq": 0.7206673780637612,
+      "gap": 0.15513710125282965,
+      "n_mid_teams": 3
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_2",
+      "leader_team": "AUS",
+      "leader_mean_fq": 0.864196934138431,
+      "mid_fleet_mean_fq": 0.8371952989040067,
+      "gap": 0.027001635234424337,
+      "n_mid_teams": 3
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_3",
+      "leader_team": "ESP",
+      "leader_mean_fq": 0.8640652094632649,
+      "mid_fleet_mean_fq": 0.8514660789221368,
+      "gap": 0.012599130541128156,
+      "n_mid_teams": 3
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_4",
+      "leader_team": "AUS",
+      "leader_mean_fq": 0.8702404730260456,
+      "mid_fleet_mean_fq": 0.847087124663262,
+      "gap": 0.0231533483627836,
+      "n_mid_teams": 3
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_5",
+      "leader_team": "ESP",
+      "leader_mean_fq": 0.8595873433582001,
+      "mid_fleet_mean_fq": 0.8335102617081311,
+      "gap": 0.026077081650068945,
+      "n_mid_teams": 3
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_6",
+      "leader_team": "AUS",
+      "leader_mean_fq": 0.8533138310827653,
+      "mid_fleet_mean_fq": 0.7857485472227846,
+      "gap": 0.06756528385998062,
+      "n_mid_teams": 3
+    },
+    {
+      "venue": "Bermuda",
+      "race_label": "Race_7",
+      "leader_team": "GER",
+      "leader_mean_fq": 0.7618769336856369,
+      "mid_fleet_mean_fq": 0.6142268720109935,
+      "gap": 0.14765006167464345,
+      "n_mid_teams": 3
+    }
+  ],
+  "outputs": {
+    "csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/flight_quality.csv",
+    "html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/flight_quality.html"
+  },
+  "extensions": {
+    "leader_mid_gaps_splashdown": [
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_1",
+        "leader_team": "USA",
+        "leader_mean_fq": 0.8758044793165908,
+        "mid_fleet_mean_fq": 0.7206673780637612,
+        "gap": 0.15513710125282953,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 0.0,
+        "mid_fleet_splashdown_frac": 0.0
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_2",
+        "leader_team": "AUS",
+        "leader_mean_fq": 0.864196934138431,
+        "mid_fleet_mean_fq": 0.8371952989040067,
+        "gap": 0.027001635234424337,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 0.0,
+        "mid_fleet_splashdown_frac": 0.0
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_3",
+        "leader_team": "ESP",
+        "leader_mean_fq": 0.8640652094632649,
+        "mid_fleet_mean_fq": 0.8514660789221368,
+        "gap": 0.012599130541128156,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 0.0,
+        "mid_fleet_splashdown_frac": 0.0
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_4",
+        "leader_team": "AUS",
+        "leader_mean_fq": 0.8702404730260456,
+        "mid_fleet_mean_fq": 0.847087124663262,
+        "gap": 0.0231533483627836,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 0.0,
+        "mid_fleet_splashdown_frac": 0.0
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_5",
+        "leader_team": "ESP",
+        "leader_mean_fq": 0.8595873433582001,
+        "mid_fleet_mean_fq": 0.8335102617081311,
+        "gap": 0.026077081650068945,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 0.6666666666666666,
+        "mid_fleet_splashdown_frac": 0.0009416195856873823
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_6",
+        "leader_team": "AUS",
+        "leader_mean_fq": 0.8533138310827653,
+        "mid_fleet_mean_fq": 0.7857485472227846,
+        "gap": 0.06756528385998062,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 2.0,
+        "mid_fleet_splashdown_frac": 0.0032141632178038014
+      },
+      {
+        "venue": "Bermuda",
+        "race_label": "Race_7",
+        "leader_team": "GER",
+        "leader_mean_fq": 0.7618769336856369,
+        "mid_fleet_mean_fq": 0.6142268720109935,
+        "gap": 0.14765006167464345,
+        "n_mid_teams": 3,
+        "leader_splashdown_s": 0,
+        "mid_fleet_splashdown_s": 7.666666666666667,
+        "mid_fleet_splashdown_frac": 0.010817774892503497
+      }
+    ],
+    "ghost_overlay": {
+      "spearman_rho": -0.17293403109805414,
+      "n_points": 48710
+    },
+    "manoeuvre_recovery": {
+      "n_events": 10246,
+      "n_recovered": 9662,
+      "team_recovery_cv": 0.530138507890215
+    },
+    "extension_criteria": {
+      "ghost_overlay_spearman": {
+        "passed": true,
+        "value": -0.1729,
+        "threshold": "> -0.3"
+      },
+      "tack_recovery_cv": {
+        "passed": true,
+        "value": 0.5301,
+        "threshold": "> 0.15"
+      }
+    },
+    "outputs": {
+      "ghost_scatter_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/flight_quality_ghost_scatter.html",
+      "manoeuvre_recovery_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/flight_quality_manoeuvre_recovery.csv"
+    }
+  },
+  "all_passed_with_extensions": true
+}

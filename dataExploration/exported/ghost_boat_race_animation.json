@@ -1,0 +1,20 @@
+{
+  "experiment": "ghost_boat_race_animation",
+  "venue": "Bermuda",
+  "race_label": "Race_5",
+  "top_teams": [
+    "ESP",
+    "AUS",
+    "FRA"
+  ],
+  "n_frames": 660,
+  "race_duration_s": 659,
+  "n_static_traces": 7,
+  "n_marker_traces": 6,
+  "output": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_race_animation.html",
+  "legend": {
+    "circle": "actual boat (top 3 finishers)",
+    "diamond": "ghost boat (polar-optimal path using that boat's wind)",
+    "star": "inferred mark positions"
+  }
+}

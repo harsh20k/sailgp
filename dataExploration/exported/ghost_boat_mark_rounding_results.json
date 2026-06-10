@@ -1,0 +1,137 @@
+{
+  "experiment": "c3_mark_rounding_regret",
+  "venues": [
+    "Bermuda",
+    "Halifax"
+  ],
+  "n_leg_transitions": 648,
+  "n_teams": 13,
+  "zone_seconds": {
+    "mark_entry": 30,
+    "mark_rounding": 20,
+    "mark_exit": 30
+  },
+  "summary": {
+    "mean_mark_zone_frac_upwind": 0.47119411476216083,
+    "mean_mark_zone_frac_all": 0.6383916118928968,
+    "ita_mean_mark_zone_frac": 0.3937464997177355,
+    "fleet_median_mark_zone_frac": 0.4755856014576561
+  },
+  "team_summary": [
+    {
+      "team": "NZL",
+      "n_legs": 9,
+      "mean_mark_zone_frac": 0.609831153399254,
+      "mean_mark_zone_regret_s": 18.555203681190882,
+      "mean_total_regret_s": 48.77834736473035
+    },
+    {
+      "team": "SUI",
+      "n_legs": 26,
+      "mean_mark_zone_frac": 0.5128003643298453,
+      "mean_mark_zone_regret_s": 19.46134499689707,
+      "mean_total_regret_s": 55.2313311495459
+    },
+    {
+      "team": "AUS",
+      "n_legs": 35,
+      "mean_mark_zone_frac": 0.501781941591356,
+      "mean_mark_zone_regret_s": 10.308486042491028,
+      "mean_total_regret_s": 36.42302565212757
+    },
+    {
+      "team": "BRA",
+      "n_legs": 19,
+      "mean_mark_zone_frac": 0.4915523862086577,
+      "mean_mark_zone_regret_s": 22.000279094435818,
+      "mean_total_regret_s": 61.338280947977125
+    },
+    {
+      "team": "DEN",
+      "n_legs": 29,
+      "mean_mark_zone_frac": 0.4845159022170066,
+      "mean_mark_zone_regret_s": 16.51707281660421,
+      "mean_total_regret_s": 55.06989177265047
+    },
+    {
+      "team": "CAN",
+      "n_legs": 30,
+      "mean_mark_zone_frac": 0.4830706032795753,
+      "mean_mark_zone_regret_s": 14.866558085381971,
+      "mean_total_regret_s": 52.51752937088405
+    },
+    {
+      "team": "GER",
+      "n_legs": 30,
+      "mean_mark_zone_frac": 0.4755856014576561,
+      "mean_mark_zone_regret_s": 17.43311129833261,
+      "mean_total_regret_s": 49.96704551006356
+    },
+    {
+      "team": "USA",
+      "n_legs": 27,
+      "mean_mark_zone_frac": 0.4694380180299203,
+      "mean_mark_zone_regret_s": 21.073897742286867,
+      "mean_total_regret_s": 62.78620309382685
+    },
+    {
+      "team": "GBR",
+      "n_legs": 32,
+      "mean_mark_zone_frac": 0.4665697593833759,
+      "mean_mark_zone_regret_s": 16.030944040976422,
+      "mean_total_regret_s": 45.4753721905872
+    },
+    {
+      "team": "FRA",
+      "n_legs": 25,
+      "mean_mark_zone_frac": 0.46398571942432315,
+      "mean_mark_zone_regret_s": 17.599778112471007,
+      "mean_total_regret_s": 55.96074048429719
+    },
+    {
+      "team": "ESP",
+      "n_legs": 28,
+      "mean_mark_zone_frac": 0.3985101485070001,
+      "mean_mark_zone_regret_s": 13.646112007222017,
+      "mean_total_regret_s": 44.43911372710551
+    },
+    {
+      "team": "ITA",
+      "n_legs": 16,
+      "mean_mark_zone_frac": 0.3937464997177355,
+      "mean_mark_zone_regret_s": 18.99991188012067,
+      "mean_total_regret_s": 81.52660105191168
+    },
+    {
+      "team": "SWE",
+      "n_legs": 8,
+      "mean_mark_zone_frac": 0.32036892626657154,
+      "mean_mark_zone_regret_s": 13.625330107286441,
+      "mean_total_regret_s": 67.00157584436226
+    }
+  ],
+  "success_criteria": {
+    "mark_zone_frac_mean_upwind": {
+      "value": 0.47119411476216083,
+      "threshold": 0.25,
+      "pass": true
+    },
+    "team_mark_frac_spread": {
+      "value": 1.9035277874978038,
+      "threshold": 1.5,
+      "pass": true
+    },
+    "ita_mark_frac_vs_median": {
+      "value": 0.3937464997177355,
+      "fleet_median": 0.4755856014576561,
+      "pass": false
+    },
+    "overall_pass": false
+  },
+  "overall_pass": false,
+  "outputs": {
+    "csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_mark_rounding.csv",
+    "html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_mark_zones.html",
+    "json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_mark_rounding_results.json"
+  }
+}

@@ -1,0 +1,495 @@
+{
+  "experiment": "dirty_air_bearing_filter",
+  "meta": {
+    "venue": "Bermuda",
+    "n_rows_raw": 51189,
+    "polar_bins": 197,
+    "polar_global_mean_kmh": 52.1065947423432,
+    "dtb_null_rate": 0.0,
+    "distance_source": "PC_DTB_m",
+    "n_rows_analysis": 46836,
+    "bearing_filter_deg": 20.0,
+    "n_rows_with_bearing": 39967,
+    "n_rows_bearing_filtered": 8454,
+    "bearing_filter_retention_pct": 18.1
+  },
+  "bin_stats_bearing_filtered": [
+    {
+      "label": "0-30m",
+      "lo": 0,
+      "hi": 30,
+      "n": 220,
+      "mean_residual_kn": -2.0053907587606896,
+      "std_residual_kn": 6.581025375338958,
+      "mean_residual_kmh": -3.713983685224798,
+      "std_residual_kmh": 12.18805899512775,
+      "mwu_p_vs_control": 6.031193585376426e-17,
+      "cohens_d_vs_control": -0.5161174852616395,
+      "loss_vs_control_kn": 2.8973997757742063
+    },
+    {
+      "label": "30-60m",
+      "lo": 30,
+      "hi": 60,
+      "n": 375,
+      "mean_residual_kn": -1.9258360518821358,
+      "std_residual_kn": 5.703133111311384,
+      "mean_residual_kmh": -3.566648368085716,
+      "std_residual_kmh": 10.562202522148686,
+      "mwu_p_vs_control": 2.9045091974774624e-24,
+      "cohens_d_vs_control": -0.5519068962081969,
+      "loss_vs_control_kn": 2.8178450688956524
+    },
+    {
+      "label": "60-100m",
+      "lo": 60,
+      "hi": 100,
+      "n": 796,
+      "mean_residual_kn": -1.1636903255652924,
+      "std_residual_kn": 4.899257523223677,
+      "mean_residual_kmh": -2.1551544829469216,
+      "std_residual_kmh": 9.073424933010251,
+      "mwu_p_vs_control": 1.783647552867198e-32,
+      "cohens_d_vs_control": -0.4405067475830532,
+      "loss_vs_control_kn": 2.055699342578809
+    },
+    {
+      "label": "100-150m",
+      "lo": 100,
+      "hi": 150,
+      "n": 1182,
+      "mean_residual_kn": -1.0296246410112428,
+      "std_residual_kn": 5.313493185687244,
+      "mean_residual_kmh": -1.9068648351528221,
+      "std_residual_kmh": 9.840589379892776,
+      "mwu_p_vs_control": 1.0470811272822978e-35,
+      "cohens_d_vs_control": -0.3931546403930102,
+      "loss_vs_control_kn": 1.9216336580247595
+    },
+    {
+      "label": "150-200m",
+      "lo": 150,
+      "hi": 200,
+      "n": 1322,
+      "mean_residual_kn": -0.5585035755051416,
+      "std_residual_kn": 4.999544575779521,
+      "mean_residual_kmh": -1.034348621835522,
+      "std_residual_kmh": 9.259156554343674,
+      "mwu_p_vs_control": 2.3592846812960673e-24,
+      "cohens_d_vs_control": -0.30738009695605384,
+      "loss_vs_control_kn": 1.4505125925186582
+    },
+    {
+      "label": "200-500m (control)",
+      "lo": 200,
+      "hi": 500,
+      "n": 4559,
+      "mean_residual_kn": 0.8920090170135165,
+      "std_residual_kn": 4.4179641519376585,
+      "mean_residual_kmh": 1.6520006995090326,
+      "std_residual_kmh": 8.182069609388543,
+      "mwu_p_vs_control": 1.0,
+      "cohens_d_vs_control": 0.0,
+      "loss_vs_control_kn": 0.0
+    }
+  ],
+  "bin_stats_by_pos": {
+    "close_hauled": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 70,
+        "mean_residual_kn": -3.2273278972112087,
+        "std_residual_kn": 5.272196637378379,
+        "mean_residual_kmh": -5.97701126563516,
+        "std_residual_kmh": 9.76410817242476,
+        "mwu_p_vs_control": 4.5398557572342956e-18,
+        "cohens_d_vs_control": -1.032051490438194,
+        "loss_vs_control_kn": 4.491075647888708
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 149,
+        "mean_residual_kn": -2.566844205605973,
+        "std_residual_kn": 5.120212129648452,
+        "mean_residual_kmh": -4.753795468782262,
+        "std_residual_kmh": 9.482632864108934,
+        "mwu_p_vs_control": 7.30463870012115e-22,
+        "cohens_d_vs_control": -0.9020318708946655,
+        "loss_vs_control_kn": 3.830591956283472
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 255,
+        "mean_residual_kn": -1.1693727300587369,
+        "std_residual_kn": 4.399830561925022,
+        "mean_residual_kmh": -2.165678296068781,
+        "std_residual_kmh": 8.14848620068514,
+        "mwu_p_vs_control": 5.216453808302029e-18,
+        "cohens_d_vs_control": -0.6377748416469831,
+        "loss_vs_control_kn": 2.4331204807362363
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 451,
+        "mean_residual_kn": -0.8119269751448096,
+        "std_residual_kn": 4.725403323824246,
+        "mean_residual_kmh": -1.5036887579681877,
+        "std_residual_kmh": 8.751446955722505,
+        "mwu_p_vs_control": 6.041800911153747e-22,
+        "cohens_d_vs_control": -0.5184894015812598,
+        "loss_vs_control_kn": 2.075674725822309
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 546,
+        "mean_residual_kn": -0.24273848077687168,
+        "std_residual_kn": 4.0023705558065705,
+        "mean_residual_kmh": -0.44955166639876637,
+        "std_residual_kmh": 7.412390269353769,
+        "mwu_p_vs_control": 1.0672421382819574e-19,
+        "cohens_d_vs_control": -0.4200733543549003,
+        "loss_vs_control_kn": 1.5064862314543712
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 1820,
+        "mean_residual_kn": 1.2637477506774994,
+        "std_residual_kn": 3.1094432638652374,
+        "mean_residual_kmh": 2.340460834254729,
+        "std_residual_kmh": 5.75868892467842,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ],
+    "beam": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 12,
+        "mean_residual_kn": -5.542070999035272,
+        "std_residual_kn": 7.188118084672146,
+        "mean_residual_kmh": -10.263915490213323,
+        "std_residual_kmh": 13.312394692812815,
+        "mwu_p_vs_control": 0.00018386437800147363,
+        "cohens_d_vs_control": -1.1732348967399995,
+        "loss_vs_control_kn": 7.377155169905414
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 31,
+        "mean_residual_kn": -2.842935781016697,
+        "std_residual_kn": 5.417494977046199,
+        "mean_residual_kmh": -5.265117066442922,
+        "std_residual_kmh": 10.033200697489562,
+        "mwu_p_vs_control": 1.7465622851534066e-06,
+        "cohens_d_vs_control": -0.9084296518425256,
+        "loss_vs_control_kn": 4.678019951886839
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 190,
+        "mean_residual_kn": -3.162722081113846,
+        "std_residual_kn": 4.681064715512314,
+        "mean_residual_kmh": -5.857361294222843,
+        "std_residual_kmh": 8.669331853128806,
+        "mwu_p_vs_control": 5.580629706833166e-33,
+        "cohens_d_vs_control": -1.0567244735380927,
+        "loss_vs_control_kn": 4.997806251983988
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 294,
+        "mean_residual_kn": -2.005668341289162,
+        "std_residual_kn": 5.403991893432975,
+        "mean_residual_kmh": -3.714497768067528,
+        "std_residual_kmh": 10.008192986637871,
+        "mwu_p_vs_control": 3.555658020935796e-27,
+        "cohens_d_vs_control": -0.7531514814656941,
+        "loss_vs_control_kn": 3.840752512159304
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 314,
+        "mean_residual_kn": -1.8566432778610678,
+        "std_residual_kn": 4.724651228565421,
+        "mean_residual_kmh": -3.438503350598697,
+        "std_residual_kmh": 8.75005407530316,
+        "mwu_p_vs_control": 8.769245462477227e-32,
+        "cohens_d_vs_control": -0.7774023685694094,
+        "loss_vs_control_kn": 3.6917274487312097
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 947,
+        "mean_residual_kn": 1.8350841708701422,
+        "std_residual_kn": 4.7628305029680655,
+        "mean_residual_kmh": 3.3985758844515033,
+        "std_residual_kmh": 8.820762091496857,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ],
+    "broad": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 26,
+        "mean_residual_kn": -3.690650394217553,
+        "std_residual_kn": 6.3202632819874776,
+        "mean_residual_kmh": -6.835084530090908,
+        "std_residual_kmh": 11.70512759824081,
+        "mwu_p_vs_control": 4.473531054970871e-05,
+        "cohens_d_vs_control": -0.7542795646721419,
+        "loss_vs_control_kn": 4.286166895838773
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 80,
+        "mean_residual_kn": -3.298674655870181,
+        "std_residual_kn": 6.101239197592547,
+        "mean_residual_kmh": -6.1091454626715755,
+        "std_residual_kmh": 11.299494993941398,
+        "mwu_p_vs_control": 7.1853554977918e-07,
+        "cohens_d_vs_control": -0.7066719378816625,
+        "loss_vs_control_kn": 3.8941911574914005
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 208,
+        "mean_residual_kn": -0.4451718683065059,
+        "std_residual_kn": 5.266893963025989,
+        "mean_residual_kmh": -0.824458300103649,
+        "std_residual_kmh": 9.754287619524135,
+        "mwu_p_vs_control": 0.014776736726924177,
+        "cohens_d_vs_control": -0.20626618721957607,
+        "loss_vs_control_kn": 1.0406883699277254
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 188,
+        "mean_residual_kn": -0.44330097276633207,
+        "std_residual_kn": 5.719263836107456,
+        "mean_residual_kmh": -0.8209934015632473,
+        "std_residual_kmh": 10.592076624471009,
+        "mwu_p_vs_control": 0.04433487886112064,
+        "cohens_d_vs_control": -0.19645465342412324,
+        "loss_vs_control_kn": 1.0388174743875516
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 262,
+        "mean_residual_kn": -0.5876094491890598,
+        "std_residual_kn": 6.773248562978755,
+        "mean_residual_kmh": -1.0882526998981386,
+        "std_residual_kmh": 12.544056338636656,
+        "mwu_p_vs_control": 0.16349027208464334,
+        "cohens_d_vs_control": -0.20129761745116084,
+        "loss_vs_control_kn": 1.1831259508102794
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 752,
+        "mean_residual_kn": 0.5955165016212195,
+        "std_residual_kn": 4.796521163985597,
+        "mean_residual_kmh": 1.1028965610024988,
+        "std_residual_kmh": 8.883157195701326,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ],
+    "run": [
+      {
+        "label": "0-30m",
+        "lo": 0,
+        "hi": 30,
+        "n": 81,
+        "mean_residual_kn": -2.4128772084393737,
+        "std_residual_kn": 6.719086459257582,
+        "mean_residual_kmh": -4.468648590029721,
+        "std_residual_kmh": 12.443748122545044,
+        "mwu_p_vs_control": 5.969284107129992e-05,
+        "cohens_d_vs_control": -0.35049602134470303,
+        "loss_vs_control_kn": 2.107664668432442
+      },
+      {
+        "label": "30-60m",
+        "lo": 30,
+        "hi": 60,
+        "n": 96,
+        "mean_residual_kn": -0.6236203890883308,
+        "std_residual_kn": 4.826780557507837,
+        "mean_residual_kmh": -1.154944960591589,
+        "std_residual_kmh": 8.939197592504513,
+        "mwu_p_vs_control": 0.13916759757065883,
+        "cohens_d_vs_control": -0.06358372357038386,
+        "loss_vs_control_kn": 0.31840784908139913
+      },
+      {
+        "label": "60-100m",
+        "lo": 60,
+        "hi": 100,
+        "n": 133,
+        "mean_residual_kn": 0.023664109463394215,
+        "std_residual_kn": 4.387391936663307,
+        "mean_residual_kmh": 0.043825930726206094,
+        "std_residual_kmh": 8.125449866700444,
+        "mwu_p_vs_control": 0.5463632502923619,
+        "cohens_d_vs_control": 0.06857105835666719,
+        "loss_vs_control_kn": -0.3288766494703259
+      },
+      {
+        "label": "100-150m",
+        "lo": 100,
+        "hi": 150,
+        "n": 198,
+        "mean_residual_kn": 0.3354806477756973,
+        "std_residual_kn": 4.752170639878069,
+        "mean_residual_kmh": 0.6213101596805914,
+        "std_residual_kmh": 8.801020025054184,
+        "mwu_p_vs_control": 0.8650602247198609,
+        "cohens_d_vs_control": 0.12903373382007696,
+        "loss_vs_control_kn": -0.640693187782629
+      },
+      {
+        "label": "150-200m",
+        "lo": 150,
+        "hi": 200,
+        "n": 177,
+        "mean_residual_kn": 0.24245265072742883,
+        "std_residual_kn": 4.5010959021777,
+        "mean_residual_kmh": 0.44902230914719826,
+        "std_residual_kmh": 8.3360296108331,
+        "mwu_p_vs_control": 0.8769630854311352,
+        "cohens_d_vs_control": 0.11299161592640324,
+        "loss_vs_control_kn": -0.5476651907343606
+      },
+      {
+        "label": "200-500m (control)",
+        "lo": 200,
+        "hi": 500,
+        "n": 986,
+        "mean_residual_kn": -0.3052125400069317,
+        "std_residual_kn": 5.155963986186206,
+        "mean_residual_kmh": -0.5652536240928374,
+        "std_residual_kmh": 9.548845302416854,
+        "mwu_p_vs_control": 1.0,
+        "cohens_d_vs_control": 0.0,
+        "loss_vs_control_kn": 0.0
+      }
+    ]
+  },
+  "critical_distance": {
+    "model": "piecewise_linear",
+    "critical_distance_m": 74.9898251555498,
+    "slope_close_m1": -0.012728236257156255,
+    "slope_far_m2": -0.0075799407649952055,
+    "loss_at_breakpoint_kn": 2.2345876543534953,
+    "r2": 0.9503469645983236,
+    "n_bins": 5,
+    "fit_success": true,
+    "bin_centers_m": [
+      15,
+      45,
+      80,
+      125,
+      175
+    ],
+    "bin_loss_kn": [
+      2.897,
+      2.818,
+      2.056,
+      1.922,
+      1.451
+    ]
+  },
+  "exposure_summary": {
+    "threshold_m": 60.0,
+    "n_rows": 75,
+    "team_totals": {
+      "AUS": 248,
+      "BRA": 459,
+      "CAN": 493,
+      "DEN": 366,
+      "ESP": 423,
+      "FRA": 229,
+      "GBR": 302,
+      "GER": 429,
+      "ITA": 449,
+      "SUI": 391,
+      "SWE": 160,
+      "USA": 368
+    }
+  },
+  "success": {
+    "overall_pass": false,
+    "criteria": {
+      "bearing_filtered_monotonic": {
+        "pass": true,
+        "detail": {
+          "bin_means_kn": [
+            -2.005,
+            -1.926,
+            -1.164,
+            -1.03,
+            -0.559,
+            0.892
+          ]
+        }
+      },
+      "run_worst_point_of_sail": {
+        "pass": false,
+        "detail": {
+          "close_hauled": 3.831,
+          "beam": 4.678,
+          "broad": 3.894,
+          "run": 0.318
+        }
+      },
+      "team_exposure_2x_spread": {
+        "pass": true,
+        "detail": {
+          "min_seconds": 160,
+          "max_seconds": 493,
+          "ratio": 3.08
+        }
+      }
+    }
+  }
+}

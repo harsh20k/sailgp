@@ -1,0 +1,22 @@
+{
+  "model": "regret_s ~ dirty_air_seconds + leg_length_s",
+  "n_obs": 763,
+  "dirty_air_source": "computed_PC_DTB_lt_60m",
+  "intercept": {
+    "coef": -16.31439508825596,
+    "se": 1.1634420316471614,
+    "p": 6.745256638257058e-40
+  },
+  "dirty_air_seconds": {
+    "coef": 0.0803089469933029,
+    "se": 0.09326154412439569,
+    "p": 0.38944610442963756,
+    "significant_positive": false
+  },
+  "leg_length_s": {
+    "coef": 0.4707419653805279,
+    "se": 0.013649209630738011,
+    "p": 1.2876606251303051e-157
+  },
+  "r2": 0.7484296628510398
+}

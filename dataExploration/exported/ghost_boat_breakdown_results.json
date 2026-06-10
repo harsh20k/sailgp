@@ -1,0 +1,891 @@
+{
+  "experiment": "ghost_boat_breakdown",
+  "n_legs": 763,
+  "n_races": 14,
+  "success_criteria": {
+    "upwind_vs_downwind_mwu": {
+      "value": 4.017428600237802e-12,
+      "threshold": 0.05,
+      "pass": true,
+      "n_upwind": 376,
+      "n_downwind": 387,
+      "mean_upwind_regret_s": 41.37736408888025,
+      "mean_downwind_regret_s": 18.95216852133896
+    },
+    "dirty_air_coefficient": {
+      "value": 0.0803089469933029,
+      "p_value": 0.38944610442963756,
+      "threshold": "coef>0, p<0.05",
+      "pass": false
+    },
+    "leg_rank_differs_from_cumulative": {
+      "value": 13,
+      "threshold": ">=1 race",
+      "pass": true
+    },
+    "overall_pass": false
+  },
+  "overall_pass": false,
+  "dirty_air_regression": {
+    "model": "regret_s ~ dirty_air_seconds + leg_length_s",
+    "n_obs": 763,
+    "dirty_air_source": "computed_PC_DTB_lt_60m",
+    "intercept": {
+      "coef": -16.31439508825596,
+      "se": 1.1634420316471614,
+      "p": 6.745256638257058e-40
+    },
+    "dirty_air_seconds": {
+      "coef": 0.0803089469933029,
+      "se": 0.09326154412439569,
+      "p": 0.38944610442963756,
+      "significant_positive": false
+    },
+    "leg_length_s": {
+      "coef": 0.4707419653805279,
+      "se": 0.013649209630738011,
+      "p": 1.2876606251303051e-157
+    },
+    "r2": 0.7484296628510398
+  },
+  "leg_rank_analysis": {
+    "n_races_with_diff": 13,
+    "pass": true,
+    "races": [
+      {
+        "venue": "Halifax",
+        "race_label": "Race_1",
+        "legs_with_rank_diff": [
+          {
+            "leg": 1,
+            "n_teams_misranked": 7,
+            "examples": [
+              {
+                "team": "FRA",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "SUI",
+                "leg_rank": 2,
+                "cumulative_rank": 7
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 5,
+                "cumulative_rank": 1
+              }
+            ]
+          },
+          {
+            "leg": 2,
+            "n_teams_misranked": 8,
+            "examples": [
+              {
+                "team": "GER",
+                "leg_rank": 1,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 3,
+                "cumulative_rank": 1
+              },
+              {
+                "team": "GBR",
+                "leg_rank": 4,
+                "cumulative_rank": 3
+              }
+            ]
+          },
+          {
+            "leg": 3,
+            "n_teams_misranked": 8,
+            "examples": [
+              {
+                "team": "GBR",
+                "leg_rank": 2,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "SUI",
+                "leg_rank": 3,
+                "cumulative_rank": 7
+              },
+              {
+                "team": "USA",
+                "leg_rank": 5,
+                "cumulative_rank": 10
+              }
+            ]
+          },
+          {
+            "leg": 4,
+            "n_teams_misranked": 10,
+            "examples": [
+              {
+                "team": "CAN",
+                "leg_rank": 1,
+                "cumulative_rank": 8
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 2,
+                "cumulative_rank": 1
+              },
+              {
+                "team": "NZL",
+                "leg_rank": 3,
+                "cumulative_rank": 6
+              }
+            ]
+          },
+          {
+            "leg": 5,
+            "n_teams_misranked": 9,
+            "examples": [
+              {
+                "team": "NZL",
+                "leg_rank": 1,
+                "cumulative_rank": 6
+              },
+              {
+                "team": "AUS",
+                "leg_rank": 2,
+                "cumulative_rank": 9
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 2
+              }
+            ]
+          },
+          {
+            "leg": 6,
+            "n_teams_misranked": 10,
+            "examples": [
+              {
+                "team": "GER",
+                "leg_rank": 1,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 2,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "NZL",
+                "leg_rank": 3,
+                "cumulative_rank": 6
+              }
+            ]
+          },
+          {
+            "leg": 7,
+            "n_teams_misranked": 8,
+            "examples": [
+              {
+                "team": "SUI",
+                "leg_rank": 2,
+                "cumulative_rank": 7
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "AUS",
+                "leg_rank": 4,
+                "cumulative_rank": 9
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "venue": "Halifax",
+        "race_label": "Race_2",
+        "legs_with_rank_diff": [
+          {
+            "leg": 1,
+            "n_teams_misranked": 9,
+            "examples": [
+              {
+                "team": "NZL",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 2,
+                "cumulative_rank": 7
+              },
+              {
+                "team": "GBR",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              }
+            ]
+          },
+          {
+            "leg": 2,
+            "n_teams_misranked": 7,
+            "examples": [
+              {
+                "team": "CAN",
+                "leg_rank": 2,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 7
+              },
+              {
+                "team": "NZL",
+                "leg_rank": 4,
+                "cumulative_rank": 2
+              }
+            ]
+          },
+          {
+            "leg": 3,
+            "n_teams_misranked": 5,
+            "examples": [
+              {
+                "team": "GER",
+                "leg_rank": 4,
+                "cumulative_rank": 8
+              },
+              {
+                "team": "AUS",
+                "leg_rank": 5,
+                "cumulative_rank": 6
+              },
+              {
+                "team": "GBR",
+                "leg_rank": 6,
+                "cumulative_rank": 4
+              }
+            ]
+          },
+          {
+            "leg": 4,
+            "n_teams_misranked": 8,
+            "examples": [
+              {
+                "team": "GBR",
+                "leg_rank": 2,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "GER",
+                "leg_rank": 3,
+                "cumulative_rank": 8
+              },
+              {
+                "team": "NZL",
+                "leg_rank": 4,
+                "cumulative_rank": 2
+              }
+            ]
+          },
+          {
+            "leg": 5,
+            "n_teams_misranked": 7,
+            "examples": [
+              {
+                "team": "NZL",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 2,
+                "cumulative_rank": 1
+              },
+              {
+                "team": "GBR",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              }
+            ]
+          },
+          {
+            "leg": 6,
+            "n_teams_misranked": 8,
+            "examples": [
+              {
+                "team": "AUS",
+                "leg_rank": 1,
+                "cumulative_rank": 6
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 2,
+                "cumulative_rank": 7
+              },
+              {
+                "team": "SUI",
+                "leg_rank": 3,
+                "cumulative_rank": 5
+              }
+            ]
+          },
+          {
+            "leg": 7,
+            "n_teams_misranked": 6,
+            "examples": [
+              {
+                "team": "SUI",
+                "leg_rank": 2,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "NZL",
+                "leg_rank": 4,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "AUS",
+                "leg_rank": 5,
+                "cumulative_rank": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "venue": "Halifax",
+        "race_label": "Race_3",
+        "legs_with_rank_diff": [
+          {
+            "leg": 7,
+            "n_teams_misranked": 2,
+            "examples": [
+              {
+                "team": "USA",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "AUS",
+                "leg_rank": 2,
+                "cumulative_rank": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "venue": "Halifax",
+        "race_label": "Race_4",
+        "legs_with_rank_diff": [
+          {
+            "leg": 1,
+            "n_teams_misranked": 7,
+            "examples": [
+              {
+                "team": "FRA",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 2,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 3,
+                "cumulative_rank": 7
+              }
+            ]
+          },
+          {
+            "leg": 2,
+            "n_teams_misranked": 5,
+            "examples": [
+              {
+                "team": "AUS",
+                "leg_rank": 1,
+                "cumulative_rank": 6
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 3,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "CAN",
+                "leg_rank": 4,
+                "cumulative_rank": 1
+              }
+            ]
+          },
+          {
+            "leg": 3,
+            "n_teams_misranked": 5,
+            "examples": [
+              {
+                "team": "NZL",
+                "leg_rank": 2,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "GBR",
+                "leg_rank": 4,
+                "cumulative_rank": 3
+              }
+            ]
+          },
+          {
+            "leg": 4,
+            "n_teams_misranked": 4,
+            "examples": [
+              {
+                "team": "NZL",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "GBR",
+                "leg_rank": 4,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 6,
+                "cumulative_rank": 7
+              }
+            ]
+          },
+          {
+            "leg": 5,
+            "n_teams_misranked": 6,
+            "examples": [
+              {
+                "team": "FRA",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "CAN",
+                "leg_rank": 2,
+                "cumulative_rank": 1
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 4,
+                "cumulative_rank": 5
+              }
+            ]
+          },
+          {
+            "leg": 6,
+            "n_teams_misranked": 7,
+            "examples": [
+              {
+                "team": "GBR",
+                "leg_rank": 1,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 2,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 3,
+                "cumulative_rank": 7
+              }
+            ]
+          },
+          {
+            "leg": 7,
+            "n_teams_misranked": 7,
+            "examples": [
+              {
+                "team": "AUS",
+                "leg_rank": 1,
+                "cumulative_rank": 6
+              },
+              {
+                "team": "NZL",
+                "leg_rank": 2,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 3,
+                "cumulative_rank": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "venue": "Halifax",
+        "race_label": "Race_5",
+        "legs_with_rank_diff": [
+          {
+            "leg": 1,
+            "n_teams_misranked": 6,
+            "examples": [
+              {
+                "team": "CAN",
+                "leg_rank": 1,
+                "cumulative_rank": 6
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 2,
+                "cumulative_rank": 1
+              },
+              {
+                "team": "GER",
+                "leg_rank": 3,
+                "cumulative_rank": 5
+              }
+            ]
+          },
+          {
+            "leg": 2,
+            "n_teams_misranked": 4,
+            "examples": [
+              {
+                "team": "GBR",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 2,
+                "cumulative_rank": 1
+              },
+              {
+                "team": "CAN",
+                "leg_rank": 4,
+                "cumulative_rank": 6
+              }
+            ]
+          },
+          {
+            "leg": 3,
+            "n_teams_misranked": 5,
+            "examples": [
+              {
+                "team": "DEN",
+                "leg_rank": 2,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "CAN",
+                "leg_rank": 4,
+                "cumulative_rank": 6
+              }
+            ]
+          },
+          {
+            "leg": 4,
+            "n_teams_misranked": 4,
+            "examples": [
+              {
+                "team": "DEN",
+                "leg_rank": 1,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "CAN",
+                "leg_rank": 4,
+                "cumulative_rank": 6
+              }
+            ]
+          },
+          {
+            "leg": 5,
+            "n_teams_misranked": 4,
+            "examples": [
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "GER",
+                "leg_rank": 4,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "CAN",
+                "leg_rank": 5,
+                "cumulative_rank": 6
+              }
+            ]
+          },
+          {
+            "leg": 6,
+            "n_teams_misranked": 4,
+            "examples": [
+              {
+                "team": "GER",
+                "leg_rank": 1,
+                "cumulative_rank": 5
+              },
+              {
+                "team": "FRA",
+                "leg_rank": 3,
+                "cumulative_rank": 4
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 4,
+                "cumulative_rank": 1
+              }
+            ]
+          },
+          {
+            "leg": 7,
+            "n_teams_misranked": 3,
+            "examples": [
+              {
+                "team": "GBR",
+                "leg_rank": 1,
+                "cumulative_rank": 2
+              },
+              {
+                "team": "DEN",
+                "leg_rank": 2,
+                "cumulative_rank": 3
+              },
+              {
+                "team": "ESP",
+                "leg_rank": 3,
+                "cumulative_rank": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "flight_quality_overlay": {
+    "n_legs": 518,
+    "spearman_rho_regret_vs_flight_quality": -0.272343056219789,
+    "p_value": 2.919845477549271e-10,
+    "source": "flight_quality.csv"
+  },
+  "leg_type_summary": [
+    {
+      "team": "AUS",
+      "leg_type": "downwind",
+      "n_legs": 37,
+      "mean_regret_s": 13.504797806610878,
+      "std_regret_s": 16.654492707347412
+    },
+    {
+      "team": "AUS",
+      "leg_type": "upwind",
+      "n_legs": 43,
+      "mean_regret_s": 28.844454133233317,
+      "std_regret_s": 28.755943221010074
+    },
+    {
+      "team": "BRA",
+      "leg_type": "downwind",
+      "n_legs": 21,
+      "mean_regret_s": 29.59969820295068,
+      "std_regret_s": 41.06761346159833
+    },
+    {
+      "team": "BRA",
+      "leg_type": "upwind",
+      "n_legs": 25,
+      "mean_regret_s": 46.24494873046874,
+      "std_regret_s": 46.49085467667804
+    },
+    {
+      "team": "CAN",
+      "leg_type": "downwind",
+      "n_legs": 38,
+      "mean_regret_s": 20.012732192089647,
+      "std_regret_s": 25.949990919668814
+    },
+    {
+      "team": "CAN",
+      "leg_type": "upwind",
+      "n_legs": 35,
+      "mean_regret_s": 45.175251688275985,
+      "std_regret_s": 45.34201750633328
+    },
+    {
+      "team": "DEN",
+      "leg_type": "downwind",
+      "n_legs": 37,
+      "mean_regret_s": 19.661606195810716,
+      "std_regret_s": 21.440258169898325
+    },
+    {
+      "team": "DEN",
+      "leg_type": "upwind",
+      "n_legs": 34,
+      "mean_regret_s": 41.32451911533579,
+      "std_regret_s": 38.341960942842775
+    },
+    {
+      "team": "ESP",
+      "leg_type": "downwind",
+      "n_legs": 41,
+      "mean_regret_s": 13.211669596230129,
+      "std_regret_s": 12.13414761476497
+    },
+    {
+      "team": "ESP",
+      "leg_type": "upwind",
+      "n_legs": 32,
+      "mean_regret_s": 40.1158946454525,
+      "std_regret_s": 34.094534700093504
+    },
+    {
+      "team": "FRA",
+      "leg_type": "downwind",
+      "n_legs": 28,
+      "mean_regret_s": 18.727904728480723,
+      "std_regret_s": 18.244376836093785
+    },
+    {
+      "team": "FRA",
+      "leg_type": "upwind",
+      "n_legs": 32,
+      "mean_regret_s": 37.74454367160797,
+      "std_regret_s": 34.039973908383594
+    },
+    {
+      "team": "GBR",
+      "leg_type": "downwind",
+      "n_legs": 43,
+      "mean_regret_s": 15.894792867261321,
+      "std_regret_s": 17.32292070423179
+    },
+    {
+      "team": "GBR",
+      "leg_type": "upwind",
+      "n_legs": 38,
+      "mean_regret_s": 40.727017528132414,
+      "std_regret_s": 38.44508342469046
+    },
+    {
+      "team": "GER",
+      "leg_type": "downwind",
+      "n_legs": 38,
+      "mean_regret_s": 17.823172870435208,
+      "std_regret_s": 18.859524916335204
+    },
+    {
+      "team": "GER",
+      "leg_type": "upwind",
+      "n_legs": 34,
+      "mean_regret_s": 37.40941995732925,
+      "std_regret_s": 31.154248449443628
+    },
+    {
+      "team": "ITA",
+      "leg_type": "downwind",
+      "n_legs": 22,
+      "mean_regret_s": 21.85403826019981,
+      "std_regret_s": 23.55637760725959
+    },
+    {
+      "team": "ITA",
+      "leg_type": "upwind",
+      "n_legs": 19,
+      "mean_regret_s": 66.35422164515442,
+      "std_regret_s": 66.70027556731583
+    },
+    {
+      "team": "NZL",
+      "leg_type": "downwind",
+      "n_legs": 12,
+      "mean_regret_s": 14.916108131408732,
+      "std_regret_s": 16.544129493507448
+    },
+    {
+      "team": "NZL",
+      "leg_type": "upwind",
+      "n_legs": 9,
+      "mean_regret_s": 39.16764677895437,
+      "std_regret_s": 41.88885009376008
+    },
+    {
+      "team": "SUI",
+      "leg_type": "downwind",
+      "n_legs": 27,
+      "mean_regret_s": 20.90300588254576,
+      "std_regret_s": 17.905885800060723
+    },
+    {
+      "team": "SUI",
+      "leg_type": "upwind",
+      "n_legs": 33,
+      "mean_regret_s": 35.49759671182338,
+      "std_regret_s": 32.68937833997652
+    },
+    {
+      "team": "SWE",
+      "leg_type": "downwind",
+      "n_legs": 8,
+      "mean_regret_s": 30.824491262435814,
+      "std_regret_s": 31.25659899283705
+    },
+    {
+      "team": "SWE",
+      "leg_type": "upwind",
+      "n_legs": 10,
+      "mean_regret_s": 51.250990295410176,
+      "std_regret_s": 40.4128846088843
+    },
+    {
+      "team": "USA",
+      "leg_type": "downwind",
+      "n_legs": 35,
+      "mean_regret_s": 23.647974504743278,
+      "std_regret_s": 18.69265866616154
+    },
+    {
+      "team": "USA",
+      "leg_type": "upwind",
+      "n_legs": 32,
+      "mean_regret_s": 48.96986234188088,
+      "std_regret_s": 46.28937572420999
+    }
+  ],
+  "performance_index_summary": {
+    "mean_leg_index": 0.6183695630010031,
+    "mean_race_index": 0.549408154460497
+  },
+  "outputs": {
+    "regret_by_leg_type_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_regret_by_leg_type.csv",
+    "leg_waterfall_html": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_leg_waterfall.html",
+    "dirty_air_regression_json": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_dirty_air_regression.json",
+    "composite_index_csv": "/Users/harsh/Artifacts/sailgp/dataExploration/exported/ghost_boat_composite_index.csv"
+  }
+}
